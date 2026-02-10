@@ -1,0 +1,703 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shipping & Timeline — Loomry | Global Delivery Information</title>
+    <meta name="description" content="Learn about Loomry's shipping options, production timelines, and delivery estimates. We ship globally with full tracking and transparent timelines.">
+    
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://loomry.org/shipping">
+    
+    <link rel="icon" type="image/svg+xml" href="favicon.svg">
+    <meta name="theme-color" content="#1a2b4a">
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=DM+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    
+    <style>
+        .shipping-hero {
+            background: linear-gradient(135deg, var(--navy) 0%, var(--navy-light) 100%);
+            color: var(--cream);
+            padding: 10rem 4rem 4rem;
+            text-align: center;
+        }
+        
+        .shipping-hero h1 {
+            font-family: var(--font-display);
+            font-size: clamp(2.5rem, 5vw, 4rem);
+            font-weight: 700;
+            margin-bottom: 1rem;
+        }
+        
+        .shipping-hero p {
+            font-size: 1.25rem;
+            opacity: 0.85;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        
+        .timeline-section {
+            background: var(--white);
+        }
+        
+        .timeline-visual {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+        
+        .timeline-row {
+            display: grid;
+            grid-template-columns: 200px 1fr;
+            gap: 2rem;
+            margin-bottom: 0;
+        }
+        
+        .timeline-phase {
+            position: relative;
+            padding: 2rem 0;
+        }
+        
+        .timeline-phase::before {
+            content: '';
+            position: absolute;
+            left: 50%;
+            top: 0;
+            bottom: 0;
+            width: 2px;
+            background: var(--cream-dark);
+            transform: translateX(-50%);
+        }
+        
+        .timeline-phase:first-child::before {
+            top: 50%;
+        }
+        
+        .timeline-phase:last-child::before {
+            bottom: 50%;
+        }
+        
+        .phase-dot {
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
+            width: 20px;
+            height: 20px;
+            background: var(--coral);
+            border-radius: 50%;
+            border: 4px solid var(--white);
+            box-shadow: 0 0 0 4px var(--cream);
+            z-index: 1;
+        }
+        
+        .phase-name {
+            text-align: right;
+            padding-right: 3rem;
+        }
+        
+        .phase-name h3 {
+            font-family: var(--font-display);
+            font-size: 1.1rem;
+            font-weight: 600;
+            margin-bottom: 0.25rem;
+        }
+        
+        .phase-name span {
+            font-size: 0.9rem;
+            color: var(--coral);
+            font-weight: 600;
+        }
+        
+        .phase-content {
+            padding-left: 3rem;
+            padding-top: 1.5rem;
+            padding-bottom: 1.5rem;
+        }
+        
+        .phase-content p {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+            line-height: 1.6;
+        }
+        
+        .shipping-options {
+            background: var(--cream);
+        }
+        
+        .options-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 2rem;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+        
+        .option-card {
+            background: var(--white);
+            border-radius: 24px;
+            padding: 2.5rem;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .option-card.recommended::before {
+            content: 'MOST POPULAR';
+            position: absolute;
+            top: 20px;
+            right: -35px;
+            background: var(--coral);
+            color: var(--white);
+            font-size: 0.7rem;
+            font-weight: 700;
+            padding: 0.5rem 3rem;
+            transform: rotate(45deg);
+        }
+        
+        .option-icon {
+            font-size: 3rem;
+            margin-bottom: 1.5rem;
+        }
+        
+        .option-card h3 {
+            font-family: var(--font-display);
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+        }
+        
+        .option-card .time {
+            font-size: 1.1rem;
+            color: var(--coral);
+            font-weight: 600;
+            margin-bottom: 1rem;
+        }
+        
+        .option-card p {
+            color: var(--text-muted);
+            margin-bottom: 1.5rem;
+            line-height: 1.6;
+        }
+        
+        .option-features {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+        
+        .option-features li {
+            padding: 0.5rem 0;
+            padding-left: 1.5rem;
+            position: relative;
+            font-size: 0.9rem;
+            color: var(--text-muted);
+        }
+        
+        .option-features li::before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: var(--coral);
+            font-weight: 700;
+        }
+        
+        .regions-section {
+            background: var(--white);
+        }
+        
+        .regions-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+        
+        .region-card {
+            background: var(--cream);
+            border-radius: 20px;
+            padding: 2rem;
+            text-align: center;
+        }
+        
+        .region-flag {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+        
+        .region-card h3 {
+            font-family: var(--font-display);
+            font-size: 1.1rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+        }
+        
+        .region-times {
+            font-size: 0.9rem;
+            color: var(--text-muted);
+        }
+        
+        .region-times div {
+            padding: 0.35rem 0;
+        }
+        
+        .region-times strong {
+            color: var(--navy);
+        }
+        
+        .tracking-section {
+            background: var(--navy);
+            color: var(--cream);
+        }
+        
+        .tracking-content {
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: center;
+        }
+        
+        .tracking-content .section-label {
+            color: var(--coral-light);
+        }
+        
+        .tracking-features {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+        
+        .tracking-feature {
+            text-align: center;
+        }
+        
+        .tracking-feature-icon {
+            width: 60px;
+            height: 60px;
+            background: rgba(224, 122, 95, 0.2);
+            border-radius: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.75rem;
+            margin: 0 auto 1rem;
+        }
+        
+        .tracking-feature h4 {
+            font-family: var(--font-display);
+            font-size: 1rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+        
+        .tracking-feature p {
+            font-size: 0.9rem;
+            opacity: 0.7;
+        }
+        
+        .faq-section {
+            background: var(--cream);
+        }
+        
+        .faq-grid {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .faq-item {
+            background: var(--white);
+            border-radius: 16px;
+            padding: 1.5rem 2rem;
+            margin-bottom: 1rem;
+        }
+        
+        .faq-question {
+            font-family: var(--font-display);
+            font-size: 1.05rem;
+            font-weight: 600;
+            margin-bottom: 0.75rem;
+            color: var(--navy);
+        }
+        
+        .faq-answer {
+            font-size: 0.95rem;
+            color: var(--text-muted);
+            line-height: 1.7;
+        }
+        
+        @media (max-width: 1024px) {
+            .options-grid {
+                grid-template-columns: 1fr;
+                max-width: 500px;
+            }
+            
+            .regions-grid {
+                grid-template-columns: 1fr;
+                max-width: 350px;
+            }
+            
+            .tracking-features {
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .shipping-hero {
+                padding: 8rem 2rem 3rem;
+            }
+            
+            .timeline-row {
+                grid-template-columns: 1fr;
+                gap: 0;
+            }
+            
+            .timeline-phase {
+                display: none;
+            }
+            
+            .phase-name {
+                text-align: left;
+                padding: 0;
+                background: var(--cream);
+                padding: 1rem;
+                border-radius: 12px;
+                margin-bottom: 0.5rem;
+            }
+            
+            .phase-content {
+                padding: 0 0 2rem 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav id="navbar">
+        <a href="index.html" class="logo">Loom<span>ry</span></a>
+        <div class="nav-links">
+            <a href="index.html#products">Products</a>
+            <a href="index.html#tiers">Quality Tiers</a>
+            <a href="pricing.html">Pricing</a>
+            <a href="about.html">About</a>
+            <a href="index.html#quote" class="nav-cta">Get a Quote</a>
+        </div>
+        <button class="mobile-menu-btn" aria-label="Menu" onclick="toggleMobileMenu()">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+    </nav>
+    
+    <!-- Mobile Menu -->
+    <div class="mobile-menu" id="mobileMenu">
+        <a href="index.html#products" onclick="closeMobileMenu()">Products</a>
+        <a href="index.html#tiers" onclick="closeMobileMenu()">Quality Tiers</a>
+        <a href="pricing.html" onclick="closeMobileMenu()">Pricing</a>
+        <a href="samples.html" onclick="closeMobileMenu()">Free Samples</a>
+        <a href="about.html" onclick="closeMobileMenu()">About</a>
+        <a href="index.html#quote" class="btn btn-primary" onclick="closeMobileMenu()">Get a Quote</a>
+    </div>
+
+    <!-- Hero -->
+    <header class="shipping-hero">
+        <h1 class="animate-on-scroll">We ship everywhere.</h1>
+        <p class="animate-on-scroll">Global delivery with tracking, transparent timelines, and no surprises. Here's exactly what to expect.</p>
+    </header>
+
+    <!-- Production Timeline -->
+    <section class="timeline-section">
+        <div class="section-header animate-on-scroll">
+            <span class="section-label">Production Timeline</span>
+            <h2 class="section-title">From order to delivery</h2>
+            <p class="section-subtitle">Here's the typical journey your order takes.</p>
+        </div>
+        <div class="timeline-visual">
+            <div class="timeline-row animate-on-scroll">
+                <div class="phase-name">
+                    <h3>Sample Approval</h3>
+                    <span>1–2 weeks</span>
+                    <div class="timeline-phase"><div class="phase-dot"></div></div>
+                </div>
+                <div class="phase-content">
+                    <p>We create a production sample for your approval. You'll see exactly what your final product looks like before we proceed.</p>
+                </div>
+            </div>
+            <div class="timeline-row animate-on-scroll">
+                <div class="phase-name">
+                    <h3>Material Sourcing</h3>
+                    <span>1–2 weeks</span>
+                    <div class="timeline-phase"><div class="phase-dot"></div></div>
+                </div>
+                <div class="phase-content">
+                    <p>Once approved, we order your specific fabric, trims, and labels. This ensures quality consistency across your order.</p>
+                </div>
+            </div>
+            <div class="timeline-row animate-on-scroll">
+                <div class="phase-name">
+                    <h3>Production</h3>
+                    <span>1–3 weeks</span>
+                    <div class="timeline-phase"><div class="phase-dot"></div></div>
+                </div>
+                <div class="phase-content">
+                    <p>Your garments are cut, sewn, printed/embroidered, and finished. Timeline varies by tier (Tier 1 fastest, Tier 3 longest).</p>
+                </div>
+            </div>
+            <div class="timeline-row animate-on-scroll">
+                <div class="phase-name">
+                    <h3>Quality Control</h3>
+                    <span>2–3 days</span>
+                    <div class="timeline-phase"><div class="phase-dot"></div></div>
+                </div>
+                <div class="phase-content">
+                    <p>Every piece is inspected for defects, measurements are verified, and items are packed according to your specifications.</p>
+                </div>
+            </div>
+            <div class="timeline-row animate-on-scroll">
+                <div class="phase-name">
+                    <h3>Shipping</h3>
+                    <span>1–4 weeks</span>
+                    <div class="timeline-phase"><div class="phase-dot"></div></div>
+                </div>
+                <div class="phase-content">
+                    <p>Your order ships via your chosen method. Air freight takes 5-10 days, sea freight takes 3-4 weeks. Full tracking provided.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Shipping Options -->
+    <section class="shipping-options">
+        <div class="section-header animate-on-scroll">
+            <span class="section-label">Shipping Methods</span>
+            <h2 class="section-title">Choose your speed</h2>
+        </div>
+        <div class="options-grid">
+            <div class="option-card animate-on-scroll">
+                <div class="option-icon">🚢</div>
+                <h3>Sea Freight</h3>
+                <div class="time">3–4 weeks delivery</div>
+                <p>Best for larger orders where time isn't critical. Most economical option for bulk shipments.</p>
+                <ul class="option-features">
+                    <li>Best for 500+ units</li>
+                    <li>Lowest cost per unit</li>
+                    <li>Full container or shared options</li>
+                    <li>Port-to-door service</li>
+                </ul>
+            </div>
+            <div class="option-card recommended animate-on-scroll">
+                <div class="option-icon">✈️</div>
+                <h3>Air Freight</h3>
+                <div class="time">5–10 days delivery</div>
+                <p>Perfect balance of speed and cost. Our most popular choice for time-sensitive launches.</p>
+                <ul class="option-features">
+                    <li>Ideal for 100–500 units</li>
+                    <li>Fast customs clearance</li>
+                    <li>Door-to-door delivery</li>
+                    <li>Real-time tracking</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- Regional Estimates -->
+    <section class="regions-section">
+        <div class="section-header animate-on-scroll">
+            <span class="section-label">Delivery Times</span>
+            <h2 class="section-title">Estimates by region</h2>
+            <p class="section-subtitle">Times shown are for shipping only (after production complete).</p>
+        </div>
+        <div class="regions-grid">
+            <div class="region-card animate-on-scroll">
+                <div class="region-flag">🇺🇸</div>
+                <h3>North America</h3>
+                <div class="region-times">
+                    <div><strong>Air:</strong> 5–7 days</div>
+                    <div><strong>Sea:</strong> 20–25 days</div>
+                </div>
+            </div>
+            <div class="region-card animate-on-scroll">
+                <div class="region-flag">🇬🇧</div>
+                <h3>Europe & UK</h3>
+                <div class="region-times">
+                    <div><strong>Air:</strong> 4–6 days</div>
+                    <div><strong>Sea:</strong> 18–22 days</div>
+                </div>
+            </div>
+            <div class="region-card animate-on-scroll">
+                <div class="region-flag">🇦🇺</div>
+                <h3>Australia & NZ</h3>
+                <div class="region-times">
+                    <div><strong>Air:</strong> 6–8 days</div>
+                    <div><strong>Sea:</strong> 22–28 days</div>
+                </div>
+            </div>
+            <div class="region-card animate-on-scroll">
+                <div class="region-flag">🇦🇪</div>
+                <h3>Middle East</h3>
+                <div class="region-times">
+                    <div><strong>Air:</strong> 3–5 days</div>
+                    <div><strong>Sea:</strong> 12–16 days</div>
+                </div>
+            </div>
+            <div class="region-card animate-on-scroll">
+                <div class="region-flag">🇳🇬</div>
+                <h3>Africa</h3>
+                <div class="region-times">
+                    <div><strong>Air:</strong> 5–8 days</div>
+                    <div><strong>Sea:</strong> 20–30 days</div>
+                </div>
+            </div>
+            <div class="region-card animate-on-scroll">
+                <div class="region-flag">🌏</div>
+                <h3>Asia Pacific</h3>
+                <div class="region-times">
+                    <div><strong>Air:</strong> 3–5 days</div>
+                    <div><strong>Sea:</strong> 10–18 days</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Tracking -->
+    <section class="tracking-section">
+        <div class="tracking-content">
+            <div class="section-header animate-on-scroll">
+                <span class="section-label">Full Transparency</span>
+                <h2 class="section-title" style="color: var(--cream);">Track every step</h2>
+                <p class="section-subtitle" style="color: rgba(245, 240, 232, 0.7);">We keep you informed throughout the entire process.</p>
+            </div>
+            <div class="tracking-features">
+                <div class="tracking-feature animate-on-scroll">
+                    <div class="tracking-feature-icon">📧</div>
+                    <h4>Production Updates</h4>
+                    <p>Email updates at each production milestone</p>
+                </div>
+                <div class="tracking-feature animate-on-scroll">
+                    <div class="tracking-feature-icon">📍</div>
+                    <h4>Live Tracking</h4>
+                    <p>Real-time shipment tracking via courier</p>
+                </div>
+                <div class="tracking-feature animate-on-scroll">
+                    <div class="tracking-feature-icon">📸</div>
+                    <h4>QC Photos</h4>
+                    <p>Photos of your order before it ships</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ -->
+    <section class="faq-section">
+        <div class="section-header animate-on-scroll">
+            <span class="section-label">Questions</span>
+            <h2 class="section-title">Shipping FAQs</h2>
+        </div>
+        <div class="faq-grid">
+            <div class="faq-item animate-on-scroll">
+                <h3 class="faq-question">Do you handle customs clearance?</h3>
+                <p class="faq-answer">We provide all necessary documentation (commercial invoice, packing list, certificate of origin). For DDP (Delivered Duty Paid) shipments, we handle everything. For standard shipments, you'll need to clear customs on your end — but we'll guide you through it.</p>
+            </div>
+            <div class="faq-item animate-on-scroll">
+                <h3 class="faq-question">What if my shipment is delayed?</h3>
+                <p class="faq-answer">Delays are rare but can happen due to customs holds, weather, or carrier issues. We proactively communicate any delays and work to resolve them quickly. For time-critical orders, we recommend air freight with buffer time.</p>
+            </div>
+            <div class="faq-item animate-on-scroll">
+                <h3 class="faq-question">Can you ship directly to my customers?</h3>
+                <p class="faq-answer">Yes! We offer drop shipping for established brands. Orders can be split and shipped to multiple locations. This is ideal for wholesale orders or brands with distributed fulfillment.</p>
+            </div>
+            <div class="faq-item animate-on-scroll">
+                <h3 class="faq-question">What happens if items arrive damaged?</h3>
+                <p class="faq-answer">All shipments are insured. If items arrive damaged, document it with photos immediately and contact us. We'll file a claim and either replace the items or provide a refund for affected pieces.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA -->
+    <section style="background: var(--white); padding: 6rem 4rem; text-align: center;">
+        <div class="animate-on-scroll">
+            <h2 style="font-family: var(--font-display); font-size: 2rem; margin-bottom: 1rem;">Ready to get started?</h2>
+            <p style="color: var(--text-muted); max-width: 500px; margin: 0 auto 2rem;">Have questions about shipping to your location? Get in touch and we'll provide a detailed quote including delivery timeline.</p>
+            <a href="index.html#quote" class="btn btn-primary">Get a Quote</a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-brand">
+                <a href="index.html" class="logo">Loom<span>ry</span></a>
+                <p>Premium apparel manufacturing for emerging brands. From concept to closet.</p>
+                <a href="mailto:hello@loomry.org" class="footer-email">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
+                        <polyline points="22,6 12,13 2,6"/>
+                    </svg>
+                    hello@loomry.org
+                </a>
+            </div>
+            <div class="footer-column">
+                <h4>Products</h4>
+                <a href="index.html#products">T-Shirts</a>
+                <a href="index.html#products">Hoodies</a>
+                <a href="index.html#products">Sweatshirts</a>
+                <a href="index.html#tiers">Quality Tiers</a>
+            </div>
+            <div class="footer-column">
+                <h4>Resources</h4>
+                <a href="pricing.html">MOQ & Pricing</a>
+                <a href="shipping.html">Shipping Info</a>
+                <a href="samples.html">Free Samples</a>
+                <a href="apparel-startup-kit.pdf">Startup Kit (PDF)</a>
+            </div>
+            <div class="footer-column">
+                <h4>Company</h4>
+                <a href="about.html">About Us</a>
+                <a href="index.html#quote">Contact</a>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>© 2025 Loomry. All rights reserved.</p>
+        </div>
+    </footer>
+    
+    <!-- WhatsApp Button -->
+    <a href="https://wa.me/YOUR_WHATSAPP_NUMBER?text=Hi%20Loomry!%20I%20have%20questions%20about%20shipping." class="whatsapp-float" target="_blank" rel="noopener">
+        <span class="whatsapp-tooltip">Chat with us!</span>
+        <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+    </a>
+
+    <script>
+        function toggleMobileMenu() {
+            const menu = document.getElementById('mobileMenu');
+            const btn = document.querySelector('.mobile-menu-btn');
+            menu.classList.toggle('active');
+            btn.classList.toggle('active');
+            document.body.style.overflow = menu.classList.contains('active') ? 'hidden' : '';
+        }
+        
+        function closeMobileMenu() {
+            const menu = document.getElementById('mobileMenu');
+            const btn = document.querySelector('.mobile-menu-btn');
+            menu.classList.remove('active');
+            btn.classList.remove('active');
+            document.body.style.overflow = '';
+        }
+        
+        const navbar = document.getElementById('navbar');
+        window.addEventListener('scroll', () => {
+            navbar.classList.toggle('scrolled', window.scrollY > 50);
+        });
+        
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) entry.target.classList.add('visible');
+            });
+        }, { threshold: 0.1 });
+        
+        document.querySelectorAll('.animate-on-scroll').forEach(el => observer.observe(el));
+    </script>
+</body>
+</html>

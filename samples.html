@@ -1,0 +1,654 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Free Samples — Loomry | Feel the Quality Before You Order</title>
+    <meta name="description" content="Order free samples of our t-shirts, hoodies, and sweatshirts. Choose any product, any tier. You only pay shipping. Sample cost credited to your first order.">
+    
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://loomry.org/samples">
+    
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://loomry.org/samples">
+    <meta property="og:title" content="Free Samples — Loomry">
+    <meta property="og:description" content="Feel the quality before you commit. Order free samples today.">
+    
+    <link rel="icon" type="image/svg+xml" href="favicon.svg">
+    <meta name="theme-color" content="#1a2b4a">
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=DM+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    
+    <style>
+        .samples-hero {
+            background: linear-gradient(135deg, var(--coral) 0%, var(--coral-light) 100%);
+            color: var(--white);
+            padding: 10rem 4rem 4rem;
+            text-align: center;
+        }
+        
+        .samples-hero h1 {
+            font-family: var(--font-display);
+            font-size: clamp(2.5rem, 5vw, 4rem);
+            font-weight: 700;
+            margin-bottom: 1rem;
+        }
+        
+        .samples-hero p {
+            font-size: 1.25rem;
+            opacity: 0.95;
+            max-width: 600px;
+            margin: 0 auto 2rem;
+        }
+        
+        .samples-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: rgba(255, 255, 255, 0.2);
+            padding: 0.75rem 1.5rem;
+            border-radius: 100px;
+            font-weight: 600;
+        }
+        
+        .how-samples-work {
+            background: var(--white);
+        }
+        
+        .samples-steps {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 2rem;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+        
+        .sample-step {
+            text-align: center;
+            position: relative;
+        }
+        
+        .sample-step::after {
+            content: '→';
+            position: absolute;
+            right: -1.25rem;
+            top: 2rem;
+            font-size: 1.5rem;
+            color: var(--coral);
+        }
+        
+        .sample-step:last-child::after {
+            display: none;
+        }
+        
+        .sample-step-number {
+            width: 50px;
+            height: 50px;
+            background: var(--coral);
+            color: var(--white);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: var(--font-display);
+            font-weight: 700;
+            font-size: 1.25rem;
+            margin: 0 auto 1rem;
+        }
+        
+        .sample-step h3 {
+            font-family: var(--font-display);
+            font-size: 1.1rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+        
+        .sample-step p {
+            font-size: 0.9rem;
+            color: var(--text-muted);
+        }
+        
+        .sample-options {
+            background: var(--cream);
+        }
+        
+        .options-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+        
+        .option-card {
+            background: var(--white);
+            border-radius: 24px;
+            padding: 2rem;
+            text-align: center;
+            transition: all 0.4s var(--ease-out-expo);
+            border: 2px solid transparent;
+        }
+        
+        .option-card:hover {
+            border-color: var(--coral);
+            transform: translateY(-5px);
+        }
+        
+        .option-icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+        
+        .option-card h3 {
+            font-family: var(--font-display);
+            font-size: 1.25rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+        
+        .option-card p {
+            font-size: 0.9rem;
+            color: var(--text-muted);
+            margin-bottom: 1rem;
+        }
+        
+        .option-tiers {
+            display: flex;
+            gap: 0.5rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+        
+        .tier-badge {
+            padding: 0.35rem 0.75rem;
+            background: var(--cream);
+            border-radius: 100px;
+            font-size: 0.75rem;
+            font-weight: 500;
+        }
+        
+        .faq-section {
+            background: var(--white);
+        }
+        
+        .faq-grid {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .faq-item {
+            border-bottom: 1px solid var(--cream-dark);
+            padding: 1.5rem 0;
+        }
+        
+        .faq-item:last-child {
+            border-bottom: none;
+        }
+        
+        .faq-question {
+            font-family: var(--font-display);
+            font-size: 1.1rem;
+            font-weight: 600;
+            margin-bottom: 0.75rem;
+            color: var(--navy);
+        }
+        
+        .faq-answer {
+            font-size: 1rem;
+            color: var(--text-muted);
+            line-height: 1.7;
+        }
+        
+        .sample-form-section {
+            background: var(--navy);
+            color: var(--cream);
+        }
+        
+        .sample-form-container {
+            max-width: 600px;
+            margin: 0 auto;
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 24px;
+            padding: 3rem;
+        }
+        
+        .sample-form-container h2 {
+            font-family: var(--font-display);
+            font-size: 1.75rem;
+            text-align: center;
+            margin-bottom: 0.5rem;
+        }
+        
+        .sample-form-container > p {
+            text-align: center;
+            opacity: 0.7;
+            margin-bottom: 2rem;
+        }
+        
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+        
+        .form-group label {
+            display: block;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+            color: var(--cream);
+        }
+        
+        .form-group input,
+        .form-group select,
+        .form-group textarea {
+            width: 100%;
+            padding: 1rem 1.25rem;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 12px;
+            font-size: 1rem;
+            font-family: var(--font-body);
+            background: rgba(255, 255, 255, 0.05);
+            color: var(--cream);
+            outline: none;
+            transition: all 0.3s ease;
+        }
+        
+        .form-group input::placeholder,
+        .form-group textarea::placeholder {
+            color: rgba(245, 240, 232, 0.4);
+        }
+        
+        .form-group input:focus,
+        .form-group select:focus,
+        .form-group textarea:focus {
+            border-color: var(--coral);
+            background: rgba(255, 255, 255, 0.1);
+        }
+        
+        .form-group select option {
+            background: var(--navy);
+            color: var(--cream);
+        }
+        
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1rem;
+        }
+        
+        .form-submit {
+            text-align: center;
+            margin-top: 2rem;
+        }
+        
+        .form-submit .btn-primary {
+            background: var(--coral);
+            width: 100%;
+            justify-content: center;
+        }
+        
+        .form-submit .btn-primary:hover {
+            background: var(--coral-light);
+        }
+        
+        .form-note {
+            font-size: 0.85rem;
+            opacity: 0.6;
+            margin-top: 1rem;
+            text-align: center;
+        }
+        
+        @media (max-width: 1024px) {
+            .samples-steps {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            
+            .sample-step::after {
+                display: none;
+            }
+            
+            .options-grid {
+                grid-template-columns: 1fr;
+                max-width: 400px;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .samples-hero {
+                padding: 8rem 2rem 3rem;
+            }
+            
+            .samples-steps {
+                grid-template-columns: 1fr;
+                max-width: 300px;
+            }
+            
+            .form-row {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav id="navbar">
+        <a href="index.html" class="logo">Loom<span>ry</span></a>
+        <div class="nav-links">
+            <a href="index.html#products">Products</a>
+            <a href="index.html#tiers">Quality Tiers</a>
+            <a href="pricing.html">Pricing</a>
+            <a href="about.html">About</a>
+            <a href="index.html#quote" class="nav-cta">Get a Quote</a>
+        </div>
+        <button class="mobile-menu-btn" aria-label="Menu" onclick="toggleMobileMenu()">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+    </nav>
+    
+    <!-- Mobile Menu -->
+    <div class="mobile-menu" id="mobileMenu">
+        <a href="index.html#products" onclick="closeMobileMenu()">Products</a>
+        <a href="index.html#tiers" onclick="closeMobileMenu()">Quality Tiers</a>
+        <a href="pricing.html" onclick="closeMobileMenu()">Pricing</a>
+        <a href="samples.html" onclick="closeMobileMenu()">Free Samples</a>
+        <a href="about.html" onclick="closeMobileMenu()">About</a>
+        <a href="index.html#quote" class="btn btn-primary" onclick="closeMobileMenu()">Get a Quote</a>
+    </div>
+
+    <!-- Hero -->
+    <header class="samples-hero">
+        <h1 class="animate-on-scroll">Feel it before you commit.</h1>
+        <p class="animate-on-scroll">Order free samples of any product, any tier. Touch the fabric, check the stitching, test the fit. You only pay shipping.</p>
+        <div class="samples-badge animate-on-scroll">
+            ✨ Sample cost credited to your first order
+        </div>
+    </header>
+
+    <!-- How It Works -->
+    <section class="how-samples-work">
+        <div class="section-header animate-on-scroll">
+            <span class="section-label">How It Works</span>
+            <h2 class="section-title">Get samples in 4 easy steps</h2>
+        </div>
+        <div class="samples-steps">
+            <div class="sample-step animate-on-scroll">
+                <div class="sample-step-number">1</div>
+                <h3>Choose Products</h3>
+                <p>Pick the items and tiers you want to test</p>
+            </div>
+            <div class="sample-step animate-on-scroll">
+                <div class="sample-step-number">2</div>
+                <h3>Select Sizes</h3>
+                <p>Tell us your preferred sizes for testing</p>
+            </div>
+            <div class="sample-step animate-on-scroll">
+                <div class="sample-step-number">3</div>
+                <h3>Pay Shipping</h3>
+                <p>Only $15-30 depending on your location</p>
+            </div>
+            <div class="sample-step animate-on-scroll">
+                <div class="sample-step-number">4</div>
+                <h3>Receive & Review</h3>
+                <p>Samples arrive in 5-7 business days</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sample Options -->
+    <section class="sample-options">
+        <div class="section-header animate-on-scroll">
+            <span class="section-label">What You Can Sample</span>
+            <h2 class="section-title">Any product, any tier</h2>
+            <p class="section-subtitle">Test exactly what you plan to order. No generic samples — the real thing.</p>
+        </div>
+        <div class="options-grid">
+            <div class="option-card animate-on-scroll">
+                <div class="option-icon">👕</div>
+                <h3>T-Shirts</h3>
+                <p>Regular & oversized fits available</p>
+                <div class="option-tiers">
+                    <span class="tier-badge">Tier 1</span>
+                    <span class="tier-badge">Tier 2</span>
+                    <span class="tier-badge">Tier 3</span>
+                </div>
+            </div>
+            <div class="option-card animate-on-scroll">
+                <div class="option-icon">🧥</div>
+                <h3>Hoodies</h3>
+                <p>Pullover & full-zip options</p>
+                <div class="option-tiers">
+                    <span class="tier-badge">Tier 1</span>
+                    <span class="tier-badge">Tier 2</span>
+                    <span class="tier-badge">Tier 3</span>
+                </div>
+            </div>
+            <div class="option-card animate-on-scroll">
+                <div class="option-icon">👔</div>
+                <h3>Sweatshirts</h3>
+                <p>Crewneck classics</p>
+                <div class="option-tiers">
+                    <span class="tier-badge">Tier 1</span>
+                    <span class="tier-badge">Tier 2</span>
+                    <span class="tier-badge">Tier 3</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ -->
+    <section class="faq-section">
+        <div class="section-header animate-on-scroll">
+            <span class="section-label">Questions</span>
+            <h2 class="section-title">Sample FAQs</h2>
+        </div>
+        <div class="faq-grid">
+            <div class="faq-item animate-on-scroll">
+                <h3 class="faq-question">How much do samples cost?</h3>
+                <p class="faq-answer">Samples are free — you only pay shipping ($15-30 depending on your location). When you place your first production order, we credit the sample cost back to you.</p>
+            </div>
+            <div class="faq-item animate-on-scroll">
+                <h3 class="faq-question">How long does shipping take?</h3>
+                <p class="faq-answer">Samples typically arrive within 5-7 business days. We ship via express courier with tracking so you can follow your package every step of the way.</p>
+            </div>
+            <div class="faq-item animate-on-scroll">
+                <h3 class="faq-question">Can I get samples with my logo?</h3>
+                <p class="faq-answer">Yes! If you want to test how your branding looks, we can add your logo via screen print or embroidery. This is a paid add-on ($10-20 per sample depending on complexity).</p>
+            </div>
+            <div class="faq-item animate-on-scroll">
+                <h3 class="faq-question">How many samples can I order?</h3>
+                <p class="faq-answer">We recommend 2-3 samples to start — typically one of each tier you're considering, or different products. If you need more, just let us know and we'll work something out.</p>
+            </div>
+            <div class="faq-item animate-on-scroll">
+                <h3 class="faq-question">What if I don't like the samples?</h3>
+                <p class="faq-answer">That's exactly why samples exist! No pressure to order. If something isn't right, we'll discuss what adjustments might work for your needs — or you can walk away, no hard feelings.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sample Request Form -->
+    <section class="sample-form-section">
+        <div class="section-header animate-on-scroll">
+            <span class="section-label" style="color: var(--coral-light);">Request Samples</span>
+            <h2 class="section-title" style="color: var(--cream);">Ready to feel the quality?</h2>
+        </div>
+        <div class="sample-form-container animate-on-scroll">
+            <h2>Sample Request Form</h2>
+            <p>Fill out the form and we'll get back to you within 24 hours.</p>
+            <form id="sampleForm" action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="name">Your Name *</label>
+                        <input type="text" id="name" name="name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email Address *</label>
+                        <input type="email" id="email" name="email" required>
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="product">Product *</label>
+                        <select id="product" name="product" required>
+                            <option value="">Select product</option>
+                            <option value="tshirt">T-Shirt</option>
+                            <option value="pullover-hoodie">Pullover Hoodie</option>
+                            <option value="fullzip-hoodie">Full-Zip Hoodie</option>
+                            <option value="crewneck">Crewneck Sweatshirt</option>
+                            <option value="multiple">Multiple Products</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="tier">Preferred Tier *</label>
+                        <select id="tier" name="tier" required>
+                            <option value="">Select tier</option>
+                            <option value="tier1">Tier 1 — Budget</option>
+                            <option value="tier2">Tier 2 — Core</option>
+                            <option value="tier3">Tier 3 — Premium</option>
+                            <option value="multiple">Multiple Tiers</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="size">Size *</label>
+                        <select id="size" name="size" required>
+                            <option value="">Select size</option>
+                            <option value="S">Small</option>
+                            <option value="M">Medium</option>
+                            <option value="L">Large</option>
+                            <option value="XL">X-Large</option>
+                            <option value="XXL">XX-Large</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="country">Shipping Country *</label>
+                        <input type="text" id="country" name="country" placeholder="e.g., United States" required>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="notes">Additional Notes</label>
+                    <textarea id="notes" name="notes" rows="3" placeholder="Any specific requirements? Want to test multiple items?"></textarea>
+                </div>
+                <input type="hidden" name="_subject" value="New Sample Request from Loomry">
+                <div class="form-submit">
+                    <button type="submit" class="btn btn-primary">
+                        Request Samples
+                        <svg class="btn-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M5 12h14M12 5l7 7-7 7"/>
+                        </svg>
+                    </button>
+                    <p class="form-note">We'll reply within 24 hours with shipping details and payment link.</p>
+                </div>
+            </form>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-brand">
+                <a href="index.html" class="logo">Loom<span>ry</span></a>
+                <p>Premium apparel manufacturing for emerging brands. From concept to closet.</p>
+                <a href="mailto:hello@loomry.org" class="footer-email">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
+                        <polyline points="22,6 12,13 2,6"/>
+                    </svg>
+                    hello@loomry.org
+                </a>
+            </div>
+            <div class="footer-column">
+                <h4>Products</h4>
+                <a href="index.html#products">T-Shirts</a>
+                <a href="index.html#products">Hoodies</a>
+                <a href="index.html#products">Sweatshirts</a>
+                <a href="index.html#tiers">Quality Tiers</a>
+            </div>
+            <div class="footer-column">
+                <h4>Resources</h4>
+                <a href="pricing.html">MOQ & Pricing</a>
+                <a href="shipping.html">Shipping Info</a>
+                <a href="samples.html">Free Samples</a>
+                <a href="apparel-startup-kit.pdf">Startup Kit (PDF)</a>
+            </div>
+            <div class="footer-column">
+                <h4>Company</h4>
+                <a href="about.html">About Us</a>
+                <a href="index.html#quote">Contact</a>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>© 2025 Loomry. All rights reserved.</p>
+        </div>
+    </footer>
+    
+    <!-- WhatsApp Button -->
+    <a href="https://wa.me/YOUR_WHATSAPP_NUMBER?text=Hi%20Loomry!%20I'd%20like%20to%20order%20samples." class="whatsapp-float" target="_blank" rel="noopener">
+        <span class="whatsapp-tooltip">Chat with us!</span>
+        <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+    </a>
+
+    <script>
+        function toggleMobileMenu() {
+            const menu = document.getElementById('mobileMenu');
+            const btn = document.querySelector('.mobile-menu-btn');
+            menu.classList.toggle('active');
+            btn.classList.toggle('active');
+            document.body.style.overflow = menu.classList.contains('active') ? 'hidden' : '';
+        }
+        
+        function closeMobileMenu() {
+            const menu = document.getElementById('mobileMenu');
+            const btn = document.querySelector('.mobile-menu-btn');
+            menu.classList.remove('active');
+            btn.classList.remove('active');
+            document.body.style.overflow = '';
+        }
+        
+        const navbar = document.getElementById('navbar');
+        window.addEventListener('scroll', () => {
+            navbar.classList.toggle('scrolled', window.scrollY > 50);
+        });
+        
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) entry.target.classList.add('visible');
+            });
+        }, { threshold: 0.1 });
+        
+        document.querySelectorAll('.animate-on-scroll').forEach(el => observer.observe(el));
+        
+        // Form submission
+        document.getElementById('sampleForm').addEventListener('submit', async (e) => {
+            e.preventDefault();
+            const form = e.target;
+            const btn = form.querySelector('button[type="submit"]');
+            btn.innerHTML = 'Sending...';
+            btn.disabled = true;
+            
+            try {
+                const response = await fetch(form.action, {
+                    method: 'POST',
+                    body: new FormData(form),
+                    headers: { 'Accept': 'application/json' }
+                });
+                if (response.ok) {
+                    alert('Thanks! We\'ll get back to you within 24 hours with shipping details.');
+                    form.reset();
+                } else {
+                    alert('Oops! Something went wrong. Please email us directly at hello@loomry.org');
+                }
+            } catch (error) {
+                alert('Oops! Something went wrong. Please email us directly at hello@loomry.org');
+            }
+            
+            btn.innerHTML = 'Request Samples <svg class="btn-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>';
+            btn.disabled = false;
+        });
+    </script>
+</body>
+</html>

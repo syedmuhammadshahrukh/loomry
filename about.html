@@ -1,0 +1,458 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us — Loomry | Our Story & Mission</title>
+    <meta name="description" content="Learn about Loomry's mission to help emerging clothing brands manufacture quality apparel without the traditional barriers. Ethical manufacturing, transparent pricing.">
+    
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://loomry.org/about">
+    
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://loomry.org/about">
+    <meta property="og:title" content="About Us — Loomry">
+    <meta property="og:description" content="Learn about Loomry's mission to help emerging clothing brands succeed.">
+    
+    <link rel="icon" type="image/svg+xml" href="favicon.svg">
+    <meta name="theme-color" content="#1a2b4a">
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=DM+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    
+    <style>
+        .story-section {
+            background: var(--white);
+        }
+        
+        .story-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+        
+        .story-content h2 {
+            font-family: var(--font-display);
+            font-size: 2rem;
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+        }
+        
+        .story-content p {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            color: var(--text-muted);
+            margin-bottom: 1rem;
+        }
+        
+        .story-image {
+            background: linear-gradient(135deg, var(--coral) 0%, var(--coral-light) 100%);
+            border-radius: 24px;
+            height: 400px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 6rem;
+        }
+        
+        .values-section {
+            background: var(--cream);
+        }
+        
+        .values-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+        
+        .value-card {
+            background: var(--white);
+            padding: 2.5rem;
+            border-radius: 24px;
+            text-align: center;
+            transition: all 0.4s var(--ease-out-expo);
+        }
+        
+        .value-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 40px rgba(26, 43, 74, 0.1);
+        }
+        
+        .value-icon {
+            font-size: 3rem;
+            margin-bottom: 1.5rem;
+        }
+        
+        .value-card h3 {
+            font-family: var(--font-display);
+            font-size: 1.25rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+        }
+        
+        .value-card p {
+            font-size: 0.95rem;
+            color: var(--text-muted);
+            line-height: 1.6;
+        }
+        
+        .ethics-section {
+            background: var(--navy);
+            color: var(--cream);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .ethics-section::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -20%;
+            width: 600px;
+            height: 600px;
+            background: var(--coral);
+            opacity: 0.1;
+            border-radius: 50%;
+        }
+        
+        .ethics-section .section-label {
+            color: var(--coral-light);
+        }
+        
+        .ethics-content {
+            max-width: 800px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .ethics-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+        
+        .ethics-item {
+            display: flex;
+            gap: 1rem;
+            align-items: flex-start;
+        }
+        
+        .ethics-item-icon {
+            width: 48px;
+            height: 48px;
+            background: rgba(224, 122, 95, 0.2);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            flex-shrink: 0;
+        }
+        
+        .ethics-item h4 {
+            font-family: var(--font-display);
+            font-size: 1.1rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+        
+        .ethics-item p {
+            font-size: 0.95rem;
+            opacity: 0.8;
+            line-height: 1.5;
+        }
+        
+        .cta-section {
+            background: var(--cream);
+            text-align: center;
+        }
+        
+        .cta-box {
+            max-width: 600px;
+            margin: 0 auto;
+            background: var(--white);
+            padding: 3rem;
+            border-radius: 24px;
+            box-shadow: 0 10px 40px rgba(26, 43, 74, 0.08);
+        }
+        
+        .cta-box h2 {
+            font-family: var(--font-display);
+            font-size: 2rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+        }
+        
+        .cta-box p {
+            color: var(--text-muted);
+            margin-bottom: 2rem;
+        }
+        
+        @media (max-width: 1024px) {
+            .story-grid {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+            
+            .story-image {
+                height: 300px;
+                order: -1;
+            }
+            
+            .values-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .ethics-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav id="navbar">
+        <a href="index.html" class="logo">Loom<span>ry</span></a>
+        <div class="nav-links">
+            <a href="index.html#products">Products</a>
+            <a href="index.html#tiers">Quality Tiers</a>
+            <a href="pricing.html">Pricing</a>
+            <a href="about.html">About</a>
+            <a href="index.html#quote" class="nav-cta">Get a Quote</a>
+        </div>
+        <button class="mobile-menu-btn" aria-label="Menu" onclick="toggleMobileMenu()">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+    </nav>
+    
+    <!-- Mobile Menu -->
+    <div class="mobile-menu" id="mobileMenu">
+        <a href="index.html#products" onclick="closeMobileMenu()">Products</a>
+        <a href="index.html#tiers" onclick="closeMobileMenu()">Quality Tiers</a>
+        <a href="pricing.html" onclick="closeMobileMenu()">Pricing</a>
+        <a href="samples.html" onclick="closeMobileMenu()">Free Samples</a>
+        <a href="about.html" onclick="closeMobileMenu()">About</a>
+        <a href="index.html#quote" class="btn btn-primary" onclick="closeMobileMenu()">Get a Quote</a>
+    </div>
+
+    <!-- Page Header -->
+    <header class="page-header">
+        <h1 class="animate-on-scroll">Built for founders,<br>by people who get it.</h1>
+        <p class="animate-on-scroll">We're not a massive factory. We're a team that believes starting a clothing brand shouldn't require a trust fund or insider connections.</p>
+    </header>
+
+    <!-- Our Story -->
+    <section class="story-section">
+        <div class="story-grid">
+            <div class="story-content animate-on-scroll">
+                <h2>The Problem We Saw</h2>
+                <p>Starting a clothing brand is exciting — until you hit manufacturing. Suddenly you're drowning in jargon (what even is GSM?), getting ghosted by factories, and facing MOQs that require ordering 1,000 hoodies before you've sold one.</p>
+                <p>We've been there. We've watched friends with amazing brand ideas give up because the manufacturing process felt impossible to navigate.</p>
+                <p><strong>So we decided to fix it.</strong></p>
+            </div>
+            <div class="story-image animate-on-scroll">
+                🧵
+            </div>
+        </div>
+    </section>
+
+    <!-- Our Solution -->
+    <section class="story-section" style="background: var(--cream);">
+        <div class="story-grid">
+            <div class="story-image animate-on-scroll" style="background: linear-gradient(135deg, var(--navy) 0%, var(--navy-light) 100%);">
+                💡
+            </div>
+            <div class="story-content animate-on-scroll">
+                <h2>What We Built</h2>
+                <p>Loomry is the manufacturing partner we wished existed when we started. We've stripped away the complexity and created a system that actually makes sense:</p>
+                <ul style="list-style: none; padding: 0;">
+                    <li style="padding: 0.75rem 0; padding-left: 2rem; position: relative; color: var(--text-muted); font-size: 1.1rem;">
+                        <span style="position: absolute; left: 0; color: var(--coral); font-weight: 700;">✓</span>
+                        <strong>Three clear quality tiers</strong> — so you know exactly what you're getting
+                    </li>
+                    <li style="padding: 0.75rem 0; padding-left: 2rem; position: relative; color: var(--text-muted); font-size: 1.1rem;">
+                        <span style="position: absolute; left: 0; color: var(--coral); font-weight: 700;">✓</span>
+                        <strong>MOQs starting at 100</strong> — test before you invest
+                    </li>
+                    <li style="padding: 0.75rem 0; padding-left: 2rem; position: relative; color: var(--text-muted); font-size: 1.1rem;">
+                        <span style="position: absolute; left: 0; color: var(--coral); font-weight: 700;">✓</span>
+                        <strong>Transparent everything</strong> — pricing, timelines, processes
+                    </li>
+                    <li style="padding: 0.75rem 0; padding-left: 2rem; position: relative; color: var(--text-muted); font-size: 1.1rem;">
+                        <span style="position: absolute; left: 0; color: var(--coral); font-weight: 700;">✓</span>
+                        <strong>Humans who reply</strong> — within 24 hours, usually faster
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- Our Values -->
+    <section class="values-section">
+        <div class="section-header animate-on-scroll">
+            <span class="section-label">Our Values</span>
+            <h2 class="section-title">What we believe in</h2>
+        </div>
+        <div class="values-grid">
+            <div class="value-card animate-on-scroll">
+                <div class="value-icon">🤝</div>
+                <h3>Radical Transparency</h3>
+                <p>No hidden fees. No confusing quotes. No surprises. We show you exactly what things cost and why — even when it means recommending a lower tier.</p>
+            </div>
+            <div class="value-card animate-on-scroll">
+                <div class="value-icon">📚</div>
+                <h3>Education Over Sales</h3>
+                <p>We'd rather teach you about fabrics than pressure you into ordering. An informed customer makes better decisions — and becomes a long-term partner.</p>
+            </div>
+            <div class="value-card animate-on-scroll">
+                <div class="value-icon">⚡</div>
+                <h3>Speed of Response</h3>
+                <p>Getting ghosted by manufacturers is the worst. We respond within 24 hours — usually much faster. Your questions matter, and so does your time.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Ethical Manufacturing -->
+    <section class="ethics-section">
+        <div class="section-header animate-on-scroll">
+            <span class="section-label">Ethical Manufacturing</span>
+            <h2 class="section-title" style="color: var(--cream);">Made responsibly</h2>
+            <p class="section-subtitle" style="color: rgba(245, 240, 232, 0.7);">We believe quality products and ethical practices go hand in hand.</p>
+        </div>
+        <div class="ethics-content">
+            <div class="ethics-grid">
+                <div class="ethics-item animate-on-scroll">
+                    <div class="ethics-item-icon">👷</div>
+                    <div>
+                        <h4>Fair Labor Practices</h4>
+                        <p>Our factory partners maintain safe working conditions, fair wages, and reasonable hours. No shortcuts.</p>
+                    </div>
+                </div>
+                <div class="ethics-item animate-on-scroll">
+                    <div class="ethics-item-icon">🌱</div>
+                    <div>
+                        <h4>Sustainable Options</h4>
+                        <p>We offer organic cotton and eco-friendly fabric options for brands that prioritize sustainability.</p>
+                    </div>
+                </div>
+                <div class="ethics-item animate-on-scroll">
+                    <div class="ethics-item-icon">🔍</div>
+                    <div>
+                        <h4>Full Traceability</h4>
+                        <p>Know where your products come from. We can provide documentation on materials and manufacturing processes.</p>
+                    </div>
+                </div>
+                <div class="ethics-item animate-on-scroll">
+                    <div class="ethics-item-icon">♻️</div>
+                    <div>
+                        <h4>Waste Reduction</h4>
+                        <p>We minimize fabric waste through efficient cutting patterns and recycle production scraps where possible.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="cta-section">
+        <div class="cta-box animate-on-scroll">
+            <h2>Ready to build your brand?</h2>
+            <p>Whether you're launching your first collection or switching manufacturers, we're here to help.</p>
+            <div style="display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;">
+                <a href="samples.html" class="btn btn-primary">Get Free Samples</a>
+                <a href="index.html#quote" class="btn btn-secondary">Request a Quote</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-brand">
+                <a href="index.html" class="logo">Loom<span>ry</span></a>
+                <p>Premium apparel manufacturing for emerging brands. From concept to closet.</p>
+                <a href="mailto:hello@loomry.org" class="footer-email">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
+                        <polyline points="22,6 12,13 2,6"/>
+                    </svg>
+                    hello@loomry.org
+                </a>
+            </div>
+            <div class="footer-column">
+                <h4>Products</h4>
+                <a href="index.html#products">T-Shirts</a>
+                <a href="index.html#products">Hoodies</a>
+                <a href="index.html#products">Sweatshirts</a>
+                <a href="index.html#tiers">Quality Tiers</a>
+            </div>
+            <div class="footer-column">
+                <h4>Resources</h4>
+                <a href="pricing.html">MOQ & Pricing</a>
+                <a href="shipping.html">Shipping Info</a>
+                <a href="samples.html">Free Samples</a>
+                <a href="apparel-startup-kit.pdf">Startup Kit (PDF)</a>
+            </div>
+            <div class="footer-column">
+                <h4>Company</h4>
+                <a href="about.html">About Us</a>
+                <a href="index.html#quote">Contact</a>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>© 2025 Loomry. All rights reserved.</p>
+        </div>
+    </footer>
+    
+    <!-- WhatsApp Button -->
+    <a href="https://wa.me/YOUR_WHATSAPP_NUMBER?text=Hi%20Loomry!" class="whatsapp-float" target="_blank" rel="noopener">
+        <span class="whatsapp-tooltip">Chat with us!</span>
+        <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+    </a>
+
+    <script>
+        // Mobile Menu
+        function toggleMobileMenu() {
+            const menu = document.getElementById('mobileMenu');
+            const btn = document.querySelector('.mobile-menu-btn');
+            menu.classList.toggle('active');
+            btn.classList.toggle('active');
+            document.body.style.overflow = menu.classList.contains('active') ? 'hidden' : '';
+        }
+        
+        function closeMobileMenu() {
+            const menu = document.getElementById('mobileMenu');
+            const btn = document.querySelector('.mobile-menu-btn');
+            menu.classList.remove('active');
+            btn.classList.remove('active');
+            document.body.style.overflow = '';
+        }
+        
+        // Navbar scroll
+        const navbar = document.getElementById('navbar');
+        window.addEventListener('scroll', () => {
+            navbar.classList.toggle('scrolled', window.scrollY > 50);
+        });
+        
+        // Scroll animations
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) entry.target.classList.add('visible');
+            });
+        }, { threshold: 0.1 });
+        
+        document.querySelectorAll('.animate-on-scroll').forEach(el => observer.observe(el));
+    </script>
+</body>
+</html>
