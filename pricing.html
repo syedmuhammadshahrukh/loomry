@@ -1,4 +1,374 @@
-                            </tr>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Free Samples — Loomry | Feel the Quality Before You Order</title>
+    <meta name="description" content="Order free samples of our t-shirts, hoodies, and sweatshirts. Choose any product, any tier. You only pay shipping. Sample cost credited to your first order.">
+    
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://loomry.org/samples">
+    
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://loomry.org/samples">
+    <meta property="og:title" content="Free Samples — Loomry">
+    <meta property="og:description" content="Feel the quality before you commit. Order free samples today.">
+    
+    <link rel="icon" type="image/svg+xml" href="favicon.svg">
+    <meta name="theme-color" content="#1a2b4a">
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=DM+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    
+    <style>
+        .samples-hero {
+            background: linear-gradient(135deg, var(--coral) 0%, var(--coral-light) 100%);
+            color: var(--white);
+            padding: 10rem 4rem 4rem;
+            text-align: center;
+        }
+        
+        .samples-hero h1 {
+            font-family: var(--font-display);
+            font-size: clamp(2.5rem, 5vw, 4rem);
+            font-weight: 700;
+            margin-bottom: 1rem;
+        }
+        
+        .samples-hero p {
+            font-size: 1.25rem;
+            opacity: 0.95;
+            max-width: 600px;
+            margin: 0 auto 2rem;
+        }
+        
+        .samples-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: rgba(255, 255, 255, 0.2);
+            padding: 0.75rem 1.5rem;
+            border-radius: 100px;
+            font-weight: 600;
+        }
+        
+        .how-samples-work {
+            background: var(--white);
+        }
+        
+        .samples-steps {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 2rem;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+        
+        .sample-step {
+            text-align: center;
+            position: relative;
+        }
+        
+        .sample-step::after {
+            content: '→';
+            position: absolute;
+            right: -1.25rem;
+            top: 2rem;
+            font-size: 1.5rem;
+            color: var(--coral);
+        }
+        
+        .sample-step:last-child::after {
+            display: none;
+        }
+        
+        .sample-step-number {
+            width: 50px;
+            height: 50px;
+            background: var(--coral);
+            color: var(--white);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: var(--font-display);
+            font-weight: 700;
+            font-size: 1.25rem;
+            margin: 0 auto 1rem;
+        }
+        
+        .sample-step h3 {
+            font-family: var(--font-display);
+            font-size: 1.1rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+        
+        .sample-step p {
+            font-size: 0.9rem;
+            color: var(--text-muted);
+        }
+        
+        .sample-options {
+            background: var(--cream);
+        }
+        
+        .options-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+        
+        .option-card {
+            background: var(--white);
+            border-radius: 24px;
+            padding: 2rem;
+            text-align: center;
+            transition: all 0.4s var(--ease-out-expo);
+            border: 2px solid transparent;
+        }
+        
+        .option-card:hover {
+            border-color: var(--coral);
+            transform: translateY(-5px);
+        }
+        
+        .option-icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+        
+        .option-card h3 {
+            font-family: var(--font-display);
+            font-size: 1.25rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+        
+        .option-card p {
+            font-size: 0.9rem;
+            color: var(--text-muted);
+            margin-bottom: 1rem;
+        }
+        
+        .option-tiers {
+            display: flex;
+            gap: 0.5rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+        
+        .tier-badge {
+            padding: 0.35rem 0.75rem;
+            background: var(--cream);
+            border-radius: 100px;
+            font-size: 0.75rem;
+            font-weight: 500;
+        }
+        
+        .faq-section {
+            background: var(--white);
+        }
+        
+        .faq-grid {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .faq-item {
+            border-bottom: 1px solid var(--cream-dark);
+            padding: 1.5rem 0;
+        }
+        
+        .faq-item:last-child {
+            border-bottom: none;
+        }
+        
+        .faq-question {
+            font-family: var(--font-display);
+            font-size: 1.1rem;
+            font-weight: 600;
+            margin-bottom: 0.75rem;
+            color: var(--navy);
+        }
+        
+        .faq-answer {
+            font-size: 1rem;
+            color: var(--text-muted);
+            line-height: 1.7;
+        }
+        
+        .sample-form-section {
+            background: var(--navy);
+            color: var(--cream);
+        }
+        
+        .sample-form-container {
+            max-width: 600px;
+            margin: 0 auto;
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 24px;
+            padding: 3rem;
+        }
+        
+        .sample-form-container h2 {
+            font-family: var(--font-display);
+            font-size: 1.75rem;
+            text-align: center;
+            margin-bottom: 0.5rem;
+        }
+        
+        .sample-form-container > p {
+            text-align: center;
+            opacity: 0.7;
+            margin-bottom: 2rem;
+        }
+        
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+        
+        .form-group label {
+            display: block;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+            color: var(--cream);
+        }
+        
+        .form-group input,
+        .form-group select,
+        .form-group textarea {
+            width: 100%;
+            padding: 1rem 1.25rem;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 12px;
+            font-size: 1rem;
+            font-family: var(--font-body);
+            background: rgba(255, 255, 255, 0.05);
+            color: var(--cream);
+            outline: none;
+            transition: all 0.3s ease;
+        }
+        
+        .form-group input::placeholder,
+        .form-group textarea::placeholder {
+            color: rgba(245, 240, 232, 0.4);
+        }
+        
+        .form-group input:focus,
+        .form-group select:focus,
+        .form-group textarea:focus {
+            border-color: var(--coral);
+            background: rgba(255, 255, 255, 0.1);
+        }
+        
+        .form-group select option {
+            background: var(--navy);
+            color: var(--cream);
+        }
+        
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1rem;
+        }
+        
+        .form-submit {
+            text-align: center;
+            margin-top: 2rem;
+        }
+        
+        .form-submit .btn-primary {
+            background: var(--coral);
+            width: 100%;
+            justify-content: center;
+        }
+        
+        .form-submit .btn-primary:hover {
+            background: var(--coral-light);
+        }
+        
+        .form-note {
+            font-size: 0.85rem;
+            opacity: 0.6;
+            margin-top: 1rem;
+            text-align: center;
+        }
+        
+        @media (max-width: 1024px) {
+            .samples-steps {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            
+            .sample-step::after {
+                display: none;
+            }
+            
+            .options-grid {
+                grid-template-columns: 1fr;
+                max-width: 400px;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .samples-hero {
+                padding: 8rem 2rem 3rem;
+            }
+            
+            .samples-steps {
+                grid-template-columns: 1fr;
+                max-width: 300px;
+            }
+            
+            .form-row {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav id="navbar">
+        <a href="index.html" class="logo">Loom<span>ry</span></a>
+        <div class="nav-links">
+            <a href="index.html#products">Products</a>
+            <a href="index.html#tiers">Quality Tiers</a>
+            <a href="pricing.html">Pricing</a>
+            <a href="about.html">About</a>
+            <a href="index.html#quote" class="nav-cta">Get a Quote</a>
+        </div>
+        <button class="mobile-menu-btn" aria-label="Menu" onclick="toggleMobileMenu()">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+    </nav>
+    
+    <!-- Mobile Menu -->
+    <div class="mobile-menu" id="mobileMenu">
+        <a href="index.html#products" onclick="closeMobileMenu()">Products</a>
+        <a href="index.html#tiers" onclick="closeMobileMenu()">Quality Tiers</a>
+        <a href="pricing.html" onclick="closeMobileMenu()">Pricing</a>
+        <a href="samples.html" onclick="closeMobileMenu()">Free Samples</a>
+        <a href="about.html" onclick="closeMobileMenu()">About</a>
+        <a href="index.html#quote" class="btn btn-primary" onclick="closeMobileMenu()">Get a Quote</a>
+    </div>
+
+    <!-- Hero -->
+    <header class="samples-hero">
+        <h1 class="animate-on-scroll">Feel it before you commit.</h1>
+        <p class="animate-on-scroll">Order free samples of any product, any tier. Touch the fabric, check the stitching, test the fit. You only pay shipping.</p>
+        <div class="samples-badge animate-on-scroll">
+            ✨ Sample cost credited to your first order
+        </div>
+    </header>
+  <body>
+</tr>
                             <tr>
                                 <td><span class="tier-label tier2">Tier 2</span></td>
                                 <td>200 pcs</td>
