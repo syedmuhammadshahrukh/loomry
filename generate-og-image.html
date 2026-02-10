@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Generate OG Image</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        .og-image {
+            width: 1200px;
+            height: 630px;
+            background: #f5f0e8;
+            position: relative;
+            overflow: hidden;
+            font-family: system-ui, -apple-system, sans-serif;
+        }
+        .shape-1 {
+            position: absolute;
+            top: -100px;
+            right: -100px;
+            width: 400px;
+            height: 400px;
+            background: #e07a5f;
+            border-radius: 50%;
+            opacity: 0.15;
+        }
+        .shape-2 {
+            position: absolute;
+            bottom: -75px;
+            left: -75px;
+            width: 300px;
+            height: 300px;
+            background: #1a2b4a;
+            border-radius: 50%;
+            opacity: 0.08;
+        }
+        .content {
+            position: relative;
+            z-index: 1;
+            padding: 60px 80px;
+        }
+        .logo {
+            font-size: 42px;
+            font-weight: 700;
+            color: #1a2b4a;
+            margin-bottom: 80px;
+        }
+        .logo span { color: #e07a5f; }
+        .headline {
+            font-size: 72px;
+            font-weight: 700;
+            color: #1a2b4a;
+            line-height: 1.1;
+            margin-bottom: 30px;
+        }
+        .headline span { color: #e07a5f; }
+        .subheadline {
+            font-size: 28px;
+            color: #6b7280;
+            line-height: 1.5;
+            margin-bottom: 40px;
+        }
+        .cta {
+            display: inline-block;
+            background: #1a2b4a;
+            color: #f5f0e8;
+            padding: 15px 35px;
+            border-radius: 50px;
+            font-size: 18px;
+            font-weight: 600;
+        }
+    </style>
+</head>
+<body>
+    <div class="og-image">
+        <div class="shape-1"></div>
+        <div class="shape-2"></div>
+        <div class="content">
+            <div class="logo">Loom<span>ry</span></div>
+            <div class="headline">From concept to<br><span>closet.</span></div>
+            <div class="subheadline">Premium apparel manufacturing for emerging brands.<br>T-shirts, hoodies, sweatshirts — flexible MOQs from 100 pcs.</div>
+            <div class="cta">loomry.org</div>
+        </div>
+    </div>
+    
+    <p style="margin: 20px; font-family: sans-serif;">
+        <strong>Instructions:</strong> Take a screenshot of the image above at exactly 1200x630 pixels, or use a browser extension to capture it. Save as <code>og-image.png</code> and upload to your repo.
+    </p>
+</body>
+</html>
