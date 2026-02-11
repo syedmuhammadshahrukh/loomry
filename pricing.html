@@ -3,16 +3,16 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Free Samples — Loomry | Feel the Quality Before You Order</title>
-    <meta name="description" content="Order free samples of our t-shirts, hoodies, and sweatshirts. Choose any product, any tier. You only pay shipping. Sample cost credited to your first order.">
+    <title>MOQ & Pricing — Loomry | Transparent Manufacturing Costs</title>
+    <meta name="description" content="Transparent MOQ and pricing for custom apparel manufacturing. See exactly what things cost and why. No hidden fees, no surprises.">
     
     <meta name="robots" content="index, follow">
-    <link rel="canonical" href="https://loomry.org/samples">
+    <link rel="canonical" href="https://loomry.org/pricing">
     
     <meta property="og:type" content="website">
-    <meta property="og:url" content="https://loomry.org/samples">
-    <meta property="og:title" content="Free Samples — Loomry">
-    <meta property="og:description" content="Feel the quality before you commit. Order free samples today.">
+    <meta property="og:url" content="https://loomry.org/pricing">
+    <meta property="og:title" content="MOQ & Pricing — Loomry">
+    <meta property="og:description" content="Transparent pricing for custom apparel. No hidden fees.">
     
     <link rel="icon" type="image/svg+xml" href="favicon.svg">
     <meta name="theme-color" content="#1a2b4a">
@@ -23,99 +23,262 @@
     <link rel="stylesheet" href="styles.css">
     
     <style>
-        .samples-hero {
-            background: linear-gradient(135deg, var(--coral) 0%, var(--coral-light) 100%);
-            color: var(--white);
+        .pricing-hero {
+            background: var(--navy);
+            color: var(--cream);
             padding: 10rem 4rem 4rem;
             text-align: center;
+            position: relative;
+            overflow: hidden;
         }
         
-        .samples-hero h1 {
+        .pricing-hero::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -20%;
+            width: 600px;
+            height: 600px;
+            background: var(--coral);
+            opacity: 0.1;
+            border-radius: 50%;
+        }
+        
+        .pricing-hero h1 {
             font-family: var(--font-display);
             font-size: clamp(2.5rem, 5vw, 4rem);
             font-weight: 700;
             margin-bottom: 1rem;
-        }
-        
-        .samples-hero p {
-            font-size: 1.25rem;
-            opacity: 0.95;
-            max-width: 600px;
-            margin: 0 auto 2rem;
-        }
-        
-        .samples-badge {
-            display: inline-flex;
-            align-items: center;
-            gap: 0.5rem;
-            background: rgba(255, 255, 255, 0.2);
-            padding: 0.75rem 1.5rem;
-            border-radius: 100px;
-            font-weight: 600;
-        }
-        
-        .how-samples-work {
-            background: var(--white);
-        }
-        
-        .samples-steps {
-            display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            gap: 2rem;
-            max-width: 1000px;
-            margin: 0 auto;
-        }
-        
-        .sample-step {
-            text-align: center;
             position: relative;
         }
         
-        .sample-step::after {
-            content: '→';
-            position: absolute;
-            right: -1.25rem;
-            top: 2rem;
-            font-size: 1.5rem;
-            color: var(--coral);
-        }
-        
-        .sample-step:last-child::after {
-            display: none;
-        }
-        
-        .sample-step-number {
-            width: 50px;
-            height: 50px;
-            background: var(--coral);
-            color: var(--white);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-family: var(--font-display);
-            font-weight: 700;
+        .pricing-hero p {
             font-size: 1.25rem;
-            margin: 0 auto 1rem;
+            opacity: 0.85;
+            max-width: 600px;
+            margin: 0 auto;
+            position: relative;
         }
         
-        .sample-step h3 {
+        .moq-explainer {
+            background: var(--white);
+        }
+        
+        .explainer-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .explainer-content h2 {
+            font-family: var(--font-display);
+            font-size: 1.75rem;
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+        }
+        
+        .explainer-content p {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            color: var(--text-muted);
+            margin-bottom: 1.5rem;
+        }
+        
+        .moq-visual {
+            background: var(--cream);
+            padding: 2rem;
+            border-radius: 16px;
+            margin: 2rem 0;
+        }
+        
+        .moq-visual h3 {
             font-family: var(--font-display);
             font-size: 1.1rem;
-            font-weight: 600;
-            margin-bottom: 0.5rem;
+            margin-bottom: 1rem;
         }
         
-        .sample-step p {
+        .moq-bars {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+        
+        .moq-bar {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+        
+        .moq-bar-label {
+            width: 80px;
             font-size: 0.9rem;
-            color: var(--text-muted);
+            font-weight: 600;
         }
         
-        .sample-options {
+        .moq-bar-track {
+            flex: 1;
+            height: 32px;
+            background: var(--cream-dark);
+            border-radius: 8px;
+            overflow: hidden;
+        }
+        
+        .moq-bar-fill {
+            height: 100%;
+            background: var(--coral);
+            display: flex;
+            align-items: center;
+            justify-content: flex-end;
+            padding-right: 1rem;
+            font-size: 0.85rem;
+            font-weight: 600;
+            color: var(--white);
+        }
+        
+        .pricing-tables {
             background: var(--cream);
         }
         
-        .options-grid {
+        .pricing-tables-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 2rem;
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+        
+        .pricing-card {
+            background: var(--white);
+            border-radius: 24px;
+            overflow: hidden;
+            box-shadow: 0 4px 20px rgba(26, 43, 74, 0.08);
+        }
+        
+        .pricing-card-header {
+            background: var(--navy);
+            color: var(--cream);
+            padding: 1.5rem 2rem;
+        }
+        
+        .pricing-card-header h3 {
+            font-family: var(--font-display);
+            font-size: 1.25rem;
+            font-weight: 600;
+        }
+        
+        .pricing-card-body {
+            padding: 0;
+        }
+        
+        .pricing-card table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        
+        .pricing-card th,
+        .pricing-card td {
+            padding: 1rem 1.5rem;
+            text-align: left;
+            border-bottom: 1px solid var(--cream-dark);
+        }
+        
+        .pricing-card th {
+            background: var(--cream);
+            font-size: 0.85rem;
+            font-weight: 600;
+            color: var(--text-muted);
+        }
+        
+        .pricing-card tr:last-child td {
+            border-bottom: none;
+        }
+        
+        .pricing-card td {
+            font-size: 0.95rem;
+        }
+        
+        .tier-label {
+            display: inline-block;
+            padding: 0.25rem 0.75rem;
+            border-radius: 100px;
+            font-size: 0.75rem;
+            font-weight: 600;
+        }
+        
+        .tier-label.tier1 {
+            background: #e8f5e9;
+            color: #2e7d32;
+        }
+        
+        .tier-label.tier2 {
+            background: #e3f2fd;
+            color: #1565c0;
+        }
+        
+        .tier-label.tier3 {
+            background: #f3e5f5;
+            color: #7b1fa2;
+        }
+        
+        .volume-section {
+            background: var(--white);
+        }
+        
+        .volume-content {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+        
+        .volume-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 2rem 0;
+            background: var(--white);
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: 0 4px 20px rgba(26, 43, 74, 0.08);
+        }
+        
+        .volume-table th,
+        .volume-table td {
+            padding: 1.25rem 1.5rem;
+            text-align: left;
+        }
+        
+        .volume-table th {
+            background: var(--navy);
+            color: var(--cream);
+            font-family: var(--font-display);
+            font-weight: 600;
+            font-size: 0.9rem;
+        }
+        
+        .volume-table td {
+            border-bottom: 1px solid var(--cream-dark);
+        }
+        
+        .volume-table tr:last-child td {
+            border-bottom: none;
+        }
+        
+        .volume-table tr:hover td {
+            background: var(--cream);
+        }
+        
+        .discount-badge {
+            display: inline-block;
+            padding: 0.25rem 0.5rem;
+            background: #e8f5e9;
+            color: #2e7d32;
+            border-radius: 4px;
+            font-size: 0.8rem;
+            font-weight: 600;
+        }
+        
+        .additional-costs {
+            background: var(--cream);
+        }
+        
+        .costs-grid {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
             gap: 2rem;
@@ -123,210 +286,160 @@
             margin: 0 auto;
         }
         
-        .option-card {
+        .cost-card {
             background: var(--white);
-            border-radius: 24px;
             padding: 2rem;
+            border-radius: 20px;
             text-align: center;
-            transition: all 0.4s var(--ease-out-expo);
-            border: 2px solid transparent;
         }
         
-        .option-card:hover {
-            border-color: var(--coral);
-            transform: translateY(-5px);
-        }
-        
-        .option-icon {
-            font-size: 3rem;
+        .cost-icon {
+            font-size: 2.5rem;
             margin-bottom: 1rem;
         }
         
-        .option-card h3 {
+        .cost-card h3 {
             font-family: var(--font-display);
-            font-size: 1.25rem;
+            font-size: 1.1rem;
             font-weight: 600;
             margin-bottom: 0.5rem;
         }
         
-        .option-card p {
+        .cost-card p {
             font-size: 0.9rem;
             color: var(--text-muted);
             margin-bottom: 1rem;
         }
         
-        .option-tiers {
-            display: flex;
-            gap: 0.5rem;
-            justify-content: center;
-            flex-wrap: wrap;
-        }
-        
-        .tier-badge {
-            padding: 0.35rem 0.75rem;
-            background: var(--cream);
-            border-radius: 100px;
-            font-size: 0.75rem;
-            font-weight: 500;
-        }
-        
-        .faq-section {
-            background: var(--white);
-        }
-        
-        .faq-grid {
-            max-width: 800px;
-            margin: 0 auto;
-        }
-        
-        .faq-item {
-            border-bottom: 1px solid var(--cream-dark);
-            padding: 1.5rem 0;
-        }
-        
-        .faq-item:last-child {
-            border-bottom: none;
-        }
-        
-        .faq-question {
+        .cost-range {
             font-family: var(--font-display);
-            font-size: 1.1rem;
-            font-weight: 600;
-            margin-bottom: 0.75rem;
-            color: var(--navy);
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: var(--coral);
         }
         
-        .faq-answer {
-            font-size: 1rem;
-            color: var(--text-muted);
-            line-height: 1.7;
-        }
-        
-        .sample-form-section {
+        .calculator-section {
             background: var(--navy);
             color: var(--cream);
         }
         
-        .sample-form-container {
+        .calculator-box {
             max-width: 600px;
             margin: 0 auto;
             background: rgba(255, 255, 255, 0.05);
             border: 1px solid rgba(255, 255, 255, 0.1);
             border-radius: 24px;
-            padding: 3rem;
+            padding: 2.5rem;
         }
         
-        .sample-form-container h2 {
+        .calculator-box h3 {
             font-family: var(--font-display);
-            font-size: 1.75rem;
+            font-size: 1.5rem;
             text-align: center;
-            margin-bottom: 0.5rem;
-        }
-        
-        .sample-form-container > p {
-            text-align: center;
-            opacity: 0.7;
             margin-bottom: 2rem;
         }
         
-        .form-group {
-            margin-bottom: 1.5rem;
+        .calc-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 0;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
         }
         
-        .form-group label {
-            display: block;
+        .calc-row:last-of-type {
+            border-bottom: none;
+        }
+        
+        .calc-label {
+            font-size: 1rem;
+        }
+        
+        .calc-value {
+            font-family: var(--font-display);
+            font-size: 1.25rem;
+            font-weight: 700;
+        }
+        
+        .calc-total {
+            background: var(--coral);
+            margin: 1.5rem -2.5rem -2.5rem;
+            padding: 1.5rem 2.5rem;
+            border-radius: 0 0 24px 24px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .calc-total .calc-label {
+            font-weight: 600;
+        }
+        
+        .calc-total .calc-value {
+            font-size: 1.75rem;
+        }
+        
+        .note-box {
+            background: var(--cream);
+            padding: 1.5rem;
+            border-radius: 12px;
+            margin-top: 2rem;
+            border-left: 4px solid var(--coral);
+        }
+        
+        .note-box h4 {
+            font-family: var(--font-display);
+            font-size: 1rem;
             font-weight: 600;
             margin-bottom: 0.5rem;
-            color: var(--cream);
         }
         
-        .form-group input,
-        .form-group select,
-        .form-group textarea {
-            width: 100%;
-            padding: 1rem 1.25rem;
-            border: 1px solid rgba(255, 255, 255, 0.2);
-            border-radius: 12px;
-            font-size: 1rem;
-            font-family: var(--font-body);
-            background: rgba(255, 255, 255, 0.05);
-            color: var(--cream);
-            outline: none;
-            transition: all 0.3s ease;
+        .note-box p {
+            font-size: 0.95rem;
+            color: var(--text-muted);
+            margin: 0;
         }
         
-        .form-group input::placeholder,
-        .form-group textarea::placeholder {
-            color: rgba(245, 240, 232, 0.4);
-        }
-        
-        .form-group input:focus,
-        .form-group select:focus,
-        .form-group textarea:focus {
-            border-color: var(--coral);
-            background: rgba(255, 255, 255, 0.1);
-        }
-        
-        .form-group select option {
-            background: var(--navy);
-            color: var(--cream);
-        }
-        
-        .form-row {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 1rem;
-        }
-        
-        .form-submit {
+        .cta-section {
+            background: var(--white);
             text-align: center;
-            margin-top: 2rem;
         }
         
-        .form-submit .btn-primary {
-            background: var(--coral);
-            width: 100%;
-            justify-content: center;
+        .cta-section h2 {
+            font-family: var(--font-display);
+            font-size: 2rem;
+            margin-bottom: 1rem;
         }
         
-        .form-submit .btn-primary:hover {
-            background: var(--coral-light);
-        }
-        
-        .form-note {
-            font-size: 0.85rem;
-            opacity: 0.6;
-            margin-top: 1rem;
-            text-align: center;
+        .cta-section p {
+            color: var(--text-muted);
+            max-width: 500px;
+            margin: 0 auto 2rem;
         }
         
         @media (max-width: 1024px) {
-            .samples-steps {
-                grid-template-columns: repeat(2, 1fr);
+            .pricing-tables-grid {
+                grid-template-columns: 1fr;
             }
             
-            .sample-step::after {
-                display: none;
-            }
-            
-            .options-grid {
+            .costs-grid {
                 grid-template-columns: 1fr;
                 max-width: 400px;
             }
         }
         
         @media (max-width: 768px) {
-            .samples-hero {
+            .pricing-hero {
                 padding: 8rem 2rem 3rem;
             }
             
-            .samples-steps {
-                grid-template-columns: 1fr;
-                max-width: 300px;
+            .volume-table {
+                font-size: 0.85rem;
             }
             
-            .form-row {
-                grid-template-columns: 1fr;
+            .volume-table th,
+            .volume-table td {
+                padding: 1rem;
             }
         }
     </style>
@@ -360,14 +473,110 @@
     </div>
 
     <!-- Hero -->
-    <header class="samples-hero">
-        <h1 class="animate-on-scroll">Feel it before you commit.</h1>
-        <p class="animate-on-scroll">Order free samples of any product, any tier. Touch the fabric, check the stitching, test the fit. You only pay shipping.</p>
-        <div class="samples-badge animate-on-scroll">
-            ✨ Sample cost credited to your first order
-        </div>
+    <header class="pricing-hero">
+        <h1 class="animate-on-scroll">No hidden fees.<br>No surprises.</h1>
+        <p class="animate-on-scroll">We believe in radical transparency. Here's exactly what things cost and why.</p>
     </header>
-  <body>
+
+    <!-- MOQ Explainer -->
+    <section class="moq-explainer">
+        <div class="explainer-content animate-on-scroll">
+            <h2>Why MOQ Exists (And Why Ours Is Lower)</h2>
+            <p>MOQ (Minimum Order Quantity) isn't a random number we made up to frustrate you. It exists because manufacturing has fixed costs — setting up machines, sourcing specific fabrics, allocating production time.</p>
+            <p>Most factories set MOQs at 500-1,000 pieces because they're optimized for big brands. We've structured our operations differently, so we can start at <strong>100 pieces</strong> while still delivering quality.</p>
+            
+            <div class="moq-visual">
+                <h3>How Unit Cost Changes With Volume</h3>
+                <div class="moq-bars">
+                    <div class="moq-bar">
+                        <span class="moq-bar-label">100 pcs</span>
+                        <div class="moq-bar-track">
+                            <div class="moq-bar-fill" style="width: 100%;">$32/unit</div>
+                        </div>
+                    </div>
+                    <div class="moq-bar">
+                        <span class="moq-bar-label">250 pcs</span>
+                        <div class="moq-bar-track">
+                            <div class="moq-bar-fill" style="width: 85%;">$27/unit</div>
+                        </div>
+                    </div>
+                    <div class="moq-bar">
+                        <span class="moq-bar-label">500 pcs</span>
+                        <div class="moq-bar-track">
+                            <div class="moq-bar-fill" style="width: 72%;">$23/unit</div>
+                        </div>
+                    </div>
+                    <div class="moq-bar">
+                        <span class="moq-bar-label">1000 pcs</span>
+                        <div class="moq-bar-track">
+                            <div class="moq-bar-fill" style="width: 62%;">$20/unit</div>
+                        </div>
+                    </div>
+                </div>
+                <p style="font-size: 0.85rem; color: var(--text-muted); margin-top: 1rem;">*Example pricing for Tier 2 Pullover Hoodie. Actual prices vary by product and customization.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pricing Tables -->
+    <section class="pricing-tables">
+        <div class="section-header animate-on-scroll">
+            <span class="section-label">Base Pricing</span>
+            <h2 class="section-title">Estimated costs by product</h2>
+            <p class="section-subtitle">Prices shown are per unit at minimum order quantities. Final pricing depends on customizations.</p>
+        </div>
+        <div class="pricing-tables-grid">
+            <div class="pricing-card animate-on-scroll">
+                <div class="pricing-card-header">
+                    <h3>👕 T-Shirts</h3>
+                </div>
+                <div class="pricing-card-body">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Tier</th>
+                                <th>MOQ</th>
+                                <th>Est. Price</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><span class="tier-label tier1">Tier 1</span></td>
+                                <td>150 pcs</td>
+                                <td>$8–12</td>
+                            </tr>
+                            <tr>
+                                <td><span class="tier-label tier2">Tier 2</span></td>
+                                <td>200 pcs</td>
+                                <td>$12–18</td>
+                            </tr>
+                            <tr>
+                                <td><span class="tier-label tier3">Tier 3</span></td>
+                                <td>500 pcs</td>
+                                <td>$18–28</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <div class="pricing-card animate-on-scroll">
+                <div class="pricing-card-header">
+                    <h3>🧥 Hoodies (Pullover & Full-Zip)</h3>
+                </div>
+                <div class="pricing-card-body">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Tier</th>
+                                <th>MOQ</th>
+                                <th>Est. Price</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><span class="tier-label tier1">Tier 1</span></td>
+                                <td>100 pcs</td>
+                                <td>$18–25</td>
 </tr>
                             <tr>
                                 <td><span class="tier-label tier2">Tier 2</span></td>
