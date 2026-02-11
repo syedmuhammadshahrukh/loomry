@@ -1,0 +1,1202 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Design Tools — Loomry | Customize, Calculate & Compare</title>
+    <meta name="description" content="Use Loomry's interactive tools to preview your custom apparel, calculate pricing, and compare fabric weights. Build your brand with confidence.">
+    
+    <link rel="icon" type="image/svg+xml" href="favicon.svg">
+    <meta name="theme-color" content="#1a2b4a">
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=DM+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    
+    <style>
+        .tools-hero {
+            background: linear-gradient(135deg, var(--navy) 0%, var(--navy-light) 100%);
+            color: var(--cream);
+            padding: 10rem 4rem 4rem;
+            text-align: center;
+        }
+        
+        .tools-hero h1 {
+            font-family: var(--font-display);
+            font-size: clamp(2.5rem, 5vw, 4rem);
+            font-weight: 700;
+            margin-bottom: 1rem;
+        }
+        
+        .tools-hero p {
+            font-size: 1.25rem;
+            opacity: 0.85;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        
+        .tool-nav {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            margin-top: 2rem;
+            flex-wrap: wrap;
+        }
+        
+        .tool-nav a {
+            padding: 0.75rem 1.5rem;
+            background: rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 100px;
+            color: var(--cream);
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s ease;
+        }
+        
+        .tool-nav a:hover {
+            background: var(--coral);
+            border-color: var(--coral);
+        }
+        
+        /* Tool Sections */
+        .tool-section {
+            padding: 6rem 4rem;
+        }
+        
+        .tool-section:nth-child(even) {
+            background: var(--cream);
+        }
+        
+        .tool-section:nth-child(odd) {
+            background: var(--white);
+        }
+        
+        .tool-container {
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+        
+        /* ============ PRICE CALCULATOR ============ */
+        .calculator-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            align-items: start;
+        }
+        
+        .calc-inputs {
+            background: var(--cream);
+            padding: 2rem;
+            border-radius: 24px;
+        }
+        
+        .calc-group {
+            margin-bottom: 1.5rem;
+        }
+        
+        .calc-group:last-child {
+            margin-bottom: 0;
+        }
+        
+        .calc-group label {
+            display: block;
+            font-weight: 600;
+            margin-bottom: 0.75rem;
+            color: var(--navy);
+        }
+        
+        .calc-group select,
+        .calc-group input {
+            width: 100%;
+            padding: 1rem 1.25rem;
+            border: 2px solid var(--cream-dark);
+            border-radius: 12px;
+            font-size: 1rem;
+            font-family: var(--font-body);
+            background: var(--white);
+            color: var(--navy);
+            outline: none;
+            transition: border-color 0.3s ease;
+        }
+        
+        .calc-group select:focus,
+        .calc-group input:focus {
+            border-color: var(--coral);
+        }
+        
+        .calc-results {
+            background: var(--navy);
+            color: var(--cream);
+            padding: 2rem;
+            border-radius: 24px;
+            position: sticky;
+            top: 100px;
+        }
+        
+        .calc-results h3 {
+            font-family: var(--font-display);
+            font-size: 1.25rem;
+            margin-bottom: 1.5rem;
+            padding-bottom: 1rem;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        .calc-line {
+            display: flex;
+            justify-content: space-between;
+            padding: 0.75rem 0;
+            font-size: 0.95rem;
+        }
+        
+        .calc-line.subtotal {
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            margin-top: 0.5rem;
+            padding-top: 1rem;
+        }
+        
+        .calc-line span:last-child {
+            font-weight: 600;
+        }
+        
+        .calc-total {
+            background: var(--coral);
+            margin: 1.5rem -2rem -2rem;
+            padding: 1.5rem 2rem;
+            border-radius: 0 0 24px 24px;
+        }
+        
+        .calc-total-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .calc-total-label {
+            font-size: 1rem;
+            font-weight: 600;
+        }
+        
+        .calc-total-value {
+            font-family: var(--font-display);
+            font-size: 2rem;
+            font-weight: 700;
+        }
+        
+        .calc-per-unit {
+            text-align: right;
+            font-size: 0.9rem;
+            opacity: 0.9;
+            margin-top: 0.25rem;
+        }
+        
+        .calc-note {
+            font-size: 0.85rem;
+            opacity: 0.7;
+            margin-top: 1.5rem;
+            text-align: center;
+        }
+        
+        /* ============ CUSTOMIZATION PREVIEW ============ */
+        .customizer-grid {
+            display: grid;
+            grid-template-columns: 350px 1fr;
+            gap: 3rem;
+        }
+        
+        .customizer-controls {
+            background: var(--white);
+            padding: 2rem;
+            border-radius: 24px;
+            border: 2px solid var(--cream-dark);
+        }
+        
+        .control-group {
+            margin-bottom: 2rem;
+        }
+        
+        .control-group:last-child {
+            margin-bottom: 0;
+        }
+        
+        .control-group label {
+            display: block;
+            font-weight: 600;
+            margin-bottom: 0.75rem;
+            color: var(--navy);
+        }
+        
+        .control-group select {
+            width: 100%;
+            padding: 0.875rem 1rem;
+            border: 2px solid var(--cream-dark);
+            border-radius: 10px;
+            font-size: 0.95rem;
+            font-family: var(--font-body);
+            background: var(--cream);
+            color: var(--navy);
+            outline: none;
+        }
+        
+        .control-group select:focus {
+            border-color: var(--coral);
+        }
+        
+        .logo-upload {
+            border: 2px dashed var(--cream-dark);
+            border-radius: 12px;
+            padding: 2rem;
+            text-align: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            background: var(--cream);
+        }
+        
+        .logo-upload:hover {
+            border-color: var(--coral);
+            background: rgba(224, 122, 95, 0.05);
+        }
+        
+        .logo-upload.has-logo {
+            border-style: solid;
+            border-color: var(--coral);
+        }
+        
+        .logo-upload-icon {
+            font-size: 2rem;
+            margin-bottom: 0.5rem;
+        }
+        
+        .logo-upload p {
+            font-size: 0.9rem;
+            color: var(--text-muted);
+        }
+        
+        .logo-upload input {
+            display: none;
+        }
+        
+        .logo-preview-small {
+            max-width: 100px;
+            max-height: 60px;
+            margin: 0 auto;
+        }
+        
+        .color-swatches {
+            display: flex;
+            gap: 0.5rem;
+            flex-wrap: wrap;
+        }
+        
+        .color-swatch {
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            cursor: pointer;
+            border: 3px solid transparent;
+            transition: all 0.2s ease;
+        }
+        
+        .color-swatch:hover {
+            transform: scale(1.1);
+        }
+        
+        .color-swatch.selected {
+            border-color: var(--navy);
+            box-shadow: 0 0 0 2px var(--white), 0 0 0 4px var(--navy);
+        }
+        
+        .placement-options {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 0.5rem;
+        }
+        
+        .placement-option {
+            padding: 0.75rem;
+            border: 2px solid var(--cream-dark);
+            border-radius: 10px;
+            text-align: center;
+            cursor: pointer;
+            font-size: 0.85rem;
+            transition: all 0.2s ease;
+            background: var(--cream);
+        }
+        
+        .placement-option:hover {
+            border-color: var(--coral);
+        }
+        
+        .placement-option.selected {
+            background: var(--coral);
+            border-color: var(--coral);
+            color: var(--white);
+        }
+        
+        .customizer-preview {
+            background: var(--cream);
+            border-radius: 24px;
+            padding: 3rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 500px;
+            position: relative;
+        }
+        
+        .mockup-container {
+            position: relative;
+            width: 100%;
+            max-width: 350px;
+        }
+        
+        .mockup-garment {
+            width: 100%;
+            height: auto;
+        }
+        
+        .mockup-garment svg {
+            width: 100%;
+            height: auto;
+        }
+        
+        .mockup-logo {
+            position: absolute;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            pointer-events: none;
+        }
+        
+        .mockup-logo img {
+            max-width: 100%;
+            max-height: 100%;
+            object-fit: contain;
+        }
+        
+        .mockup-logo.center-chest {
+            top: 28%;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 35%;
+            height: 15%;
+        }
+        
+        .mockup-logo.left-chest {
+            top: 22%;
+            left: 28%;
+            width: 18%;
+            height: 10%;
+        }
+        
+        .mockup-logo.full-front {
+            top: 25%;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 55%;
+            height: 35%;
+        }
+        
+        .mockup-logo.back {
+            top: 30%;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 45%;
+            height: 25%;
+        }
+        
+        .mockup-logo.left-sleeve {
+            top: 25%;
+            left: 8%;
+            width: 12%;
+            height: 8%;
+            transform: rotate(-15deg);
+        }
+        
+        .mockup-logo.right-sleeve {
+            top: 25%;
+            right: 8%;
+            width: 12%;
+            height: 8%;
+            transform: rotate(15deg);
+        }
+        
+        .download-mockup {
+            position: absolute;
+            bottom: 1.5rem;
+            right: 1.5rem;
+        }
+        
+        /* ============ FABRIC COMPARISON ============ */
+        .fabric-comparison {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .comparison-slider-container {
+            position: relative;
+            margin: 3rem 0;
+        }
+        
+        .comparison-visual {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 2rem;
+        }
+        
+        .fabric-sample {
+            text-align: center;
+            flex: 1;
+        }
+        
+        .fabric-visual {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            margin: 0 auto 1rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2.5rem;
+            transition: all 0.5s ease;
+        }
+        
+        .fabric-visual.light {
+            background: linear-gradient(135deg, #f0f0f0 0%, #e0e0e0 100%);
+            box-shadow: inset 0 2px 10px rgba(0,0,0,0.05);
+        }
+        
+        .fabric-visual.heavy {
+            background: linear-gradient(135deg, #4a4a4a 0%, #2a2a2a 100%);
+            box-shadow: inset 0 4px 20px rgba(0,0,0,0.3);
+        }
+        
+        .fabric-sample h4 {
+            font-family: var(--font-display);
+            font-size: 1.1rem;
+            font-weight: 600;
+            margin-bottom: 0.25rem;
+        }
+        
+        .fabric-sample p {
+            font-size: 0.9rem;
+            color: var(--text-muted);
+        }
+        
+        .gsm-slider {
+            position: relative;
+            padding: 2rem 0;
+        }
+        
+        .gsm-track {
+            height: 8px;
+            background: linear-gradient(90deg, #e0e0e0 0%, var(--navy) 100%);
+            border-radius: 4px;
+            position: relative;
+        }
+        
+        .gsm-range {
+            width: 100%;
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            -webkit-appearance: none;
+            background: transparent;
+            cursor: pointer;
+        }
+        
+        .gsm-range::-webkit-slider-thumb {
+            -webkit-appearance: none;
+            width: 28px;
+            height: 28px;
+            background: var(--coral);
+            border-radius: 50%;
+            cursor: grab;
+            box-shadow: 0 2px 10px rgba(224, 122, 95, 0.4);
+            transition: transform 0.2s ease;
+        }
+        
+        .gsm-range::-webkit-slider-thumb:hover {
+            transform: scale(1.1);
+        }
+        
+        .gsm-range::-webkit-slider-thumb:active {
+            cursor: grabbing;
+            transform: scale(1.15);
+        }
+        
+        .gsm-range::-moz-range-thumb {
+            width: 28px;
+            height: 28px;
+            background: var(--coral);
+            border-radius: 50%;
+            cursor: grab;
+            border: none;
+            box-shadow: 0 2px 10px rgba(224, 122, 95, 0.4);
+        }
+        
+        .gsm-labels {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 1rem;
+            font-size: 0.85rem;
+            color: var(--text-muted);
+        }
+        
+        .gsm-value-display {
+            text-align: center;
+            margin-top: 2rem;
+            padding: 2rem;
+            background: var(--navy);
+            color: var(--cream);
+            border-radius: 16px;
+        }
+        
+        .gsm-value-display .value {
+            font-family: var(--font-display);
+            font-size: 3.5rem;
+            font-weight: 700;
+            color: var(--coral);
+        }
+        
+        .gsm-value-display .unit {
+            font-size: 1.25rem;
+            opacity: 0.7;
+        }
+        
+        .gsm-value-display .description {
+            margin-top: 1rem;
+            font-size: 1rem;
+            opacity: 0.9;
+        }
+        
+        .gsm-info-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1.5rem;
+            margin-top: 3rem;
+        }
+        
+        .gsm-info-card {
+            background: var(--white);
+            padding: 1.5rem;
+            border-radius: 16px;
+            text-align: center;
+            border: 2px solid var(--cream-dark);
+            transition: all 0.3s ease;
+        }
+        
+        .gsm-info-card.active {
+            border-color: var(--coral);
+            background: rgba(224, 122, 95, 0.05);
+        }
+        
+        .gsm-info-card h4 {
+            font-family: var(--font-display);
+            font-size: 1rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+        
+        .gsm-info-card .range {
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: var(--coral);
+            margin-bottom: 0.5rem;
+        }
+        
+        .gsm-info-card p {
+            font-size: 0.85rem;
+            color: var(--text-muted);
+        }
+        
+        /* Responsive */
+        @media (max-width: 1024px) {
+            .calculator-grid,
+            .customizer-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .calc-results {
+                position: static;
+            }
+            
+            .customizer-preview {
+                min-height: 400px;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .tools-hero {
+                padding: 8rem 2rem 3rem;
+            }
+            
+            .tool-section {
+                padding: 4rem 2rem;
+            }
+            
+            .tool-nav {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .gsm-info-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .placement-options {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav id="navbar">
+        <a href="index.html" class="logo">Loom<span>ry</span></a>
+        <div class="nav-links">
+            <a href="index.html#products">Products</a>
+            <a href="index.html#tiers">Quality Tiers</a>
+            <a href="pricing.html">Pricing</a>
+            <a href="about.html">About</a>
+            <a href="index.html#quote" class="nav-cta">Get a Quote</a>
+        </div>
+        <button class="mobile-menu-btn" aria-label="Menu" onclick="toggleMobileMenu()">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+    </nav>
+    
+    <div class="mobile-menu" id="mobileMenu">
+        <a href="index.html#products" onclick="closeMobileMenu()">Products</a>
+        <a href="index.html#tiers" onclick="closeMobileMenu()">Quality Tiers</a>
+        <a href="pricing.html" onclick="closeMobileMenu()">Pricing</a>
+        <a href="samples.html" onclick="closeMobileMenu()">Free Samples</a>
+        <a href="about.html" onclick="closeMobileMenu()">About</a>
+        <a href="index.html#quote" class="btn btn-primary" onclick="closeMobileMenu()">Get a Quote</a>
+    </div>
+
+    <!-- Hero -->
+    <header class="tools-hero">
+        <h1 class="animate-on-scroll">Design Tools</h1>
+        <p class="animate-on-scroll">Preview your designs, calculate costs, and understand fabric weights — all before you order.</p>
+        <div class="tool-nav animate-on-scroll">
+            <a href="#calculator">💰 Price Calculator</a>
+            <a href="#customizer">🎨 Logo Preview</a>
+            <a href="#fabric">🧵 Fabric Guide</a>
+        </div>
+    </header>
+
+    <!-- ============ PRICE CALCULATOR ============ -->
+    <section class="tool-section" id="calculator">
+        <div class="tool-container">
+            <div class="section-header animate-on-scroll">
+                <span class="section-label">Tool #1</span>
+                <h2 class="section-title">Price Calculator</h2>
+                <p class="section-subtitle">Get an instant estimate for your order. Adjust options to see how pricing changes.</p>
+            </div>
+            
+            <div class="calculator-grid">
+                <div class="calc-inputs animate-on-scroll">
+                    <div class="calc-group">
+                        <label for="calc-product">Product Type</label>
+                        <select id="calc-product">
+                            <option value="tshirt">T-Shirt</option>
+                            <option value="hoodie" selected>Pullover Hoodie</option>
+                            <option value="fullzip">Full-Zip Hoodie</option>
+                            <option value="crewneck">Crewneck Sweatshirt</option>
+                        </select>
+                    </div>
+                    
+                    <div class="calc-group">
+                        <label for="calc-tier">Quality Tier</label>
+                        <select id="calc-tier">
+                            <option value="tier1">Tier 1 — Budget</option>
+                            <option value="tier2" selected>Tier 2 — Core</option>
+                            <option value="tier3">Tier 3 — Premium</option>
+                        </select>
+                    </div>
+                    
+                    <div class="calc-group">
+                        <label for="calc-quantity">Quantity</label>
+                        <input type="number" id="calc-quantity" value="200" min="25" step="25">
+                    </div>
+                    
+                    <div class="calc-group">
+                        <label for="calc-print">Print/Branding</label>
+                        <select id="calc-print">
+                            <option value="none">No printing</option>
+                            <option value="screen1" selected>Screen print (1 location)</option>
+                            <option value="screen2">Screen print (2 locations)</option>
+                            <option value="embroidery1">Embroidery (1 location)</option>
+                            <option value="embroidery2">Embroidery (2 locations)</option>
+                        </select>
+                    </div>
+                    
+                    <div class="calc-group">
+                        <label for="calc-labels">Custom Labels</label>
+                        <select id="calc-labels">
+                            <option value="none">Standard labels</option>
+                            <option value="woven" selected>Woven neck label</option>
+                            <option value="printed">Printed neck label</option>
+                            <option value="full">Full label package</option>
+                        </select>
+                    </div>
+                </div>
+                
+                <div class="calc-results animate-on-scroll">
+                    <h3>Estimated Cost Breakdown</h3>
+                    
+                    <div class="calc-line">
+                        <span>Base unit cost</span>
+                        <span id="result-base">$30.00</span>
+                    </div>
+                    <div class="calc-line">
+                        <span>Print/branding</span>
+                        <span id="result-print">+$2.00</span>
+                    </div>
+                    <div class="calc-line">
+                        <span>Labels</span>
+                        <span id="result-labels">+$0.75</span>
+                    </div>
+                    <div class="calc-line subtotal">
+                        <span>Unit total</span>
+                        <span id="result-unit">$32.75</span>
+                    </div>
+                    <div class="calc-line">
+                        <span>Quantity (<span id="result-qty">200</span> pcs)</span>
+                        <span id="result-subtotal">$6,550</span>
+                    </div>
+                    <div class="calc-line">
+                        <span>Volume discount</span>
+                        <span id="result-discount">-$328 (5%)</span>
+                    </div>
+                    
+                    <div class="calc-total">
+                        <div class="calc-total-row">
+                            <span class="calc-total-label">Estimated Total</span>
+                            <span class="calc-total-value" id="result-total">$6,222</span>
+                        </div>
+                        <p class="calc-per-unit"><span id="result-final-unit">$31.11</span> per unit</p>
+                    </div>
+                    
+                    <p class="calc-note">* Excludes shipping & customs. Final quote may vary based on specifications.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============ CUSTOMIZATION PREVIEW ============ -->
+    <section class="tool-section" id="customizer">
+        <div class="tool-container">
+            <div class="section-header animate-on-scroll">
+                <span class="section-label">Tool #2</span>
+                <h2 class="section-title">Logo Preview</h2>
+                <p class="section-subtitle">Upload your logo and see how it looks on different products and placements.</p>
+            </div>
+            
+            <div class="customizer-grid">
+                <div class="customizer-controls animate-on-scroll">
+                    <div class="control-group">
+                        <label>Upload Your Logo</label>
+                        <div class="logo-upload" id="logoUpload" onclick="document.getElementById('logoInput').click()">
+                            <div class="logo-upload-icon">📤</div>
+                            <p>Click to upload PNG or JPG</p>
+                            <input type="file" id="logoInput" accept="image/*">
+                        </div>
+                    </div>
+                    
+                    <div class="control-group">
+                        <label for="custom-product">Product</label>
+                        <select id="custom-product">
+                            <option value="tshirt">T-Shirt</option>
+                            <option value="hoodie" selected>Hoodie</option>
+                            <option value="crewneck">Crewneck</option>
+                        </select>
+                    </div>
+                    
+                    <div class="control-group">
+                        <label>Garment Color</label>
+                        <div class="color-swatches">
+                            <div class="color-swatch selected" style="background: #1a1a1a;" data-color="#1a1a1a" title="Black"></div>
+                            <div class="color-swatch" style="background: #ffffff; border: 1px solid #ddd;" data-color="#ffffff" title="White"></div>
+                            <div class="color-swatch" style="background: #1a2b4a;" data-color="#1a2b4a" title="Navy"></div>
+                            <div class="color-swatch" style="background: #4a4a4a;" data-color="#4a4a4a" title="Charcoal"></div>
+                            <div class="color-swatch" style="background: #8B4513;" data-color="#8B4513" title="Brown"></div>
+                            <div class="color-swatch" style="background: #f5f0e8;" data-color="#f5f0e8" title="Cream"></div>
+                            <div class="color-swatch" style="background: #2d5a27;" data-color="#2d5a27" title="Forest"></div>
+                            <div class="color-swatch" style="background: #8b0000;" data-color="#8b0000" title="Burgundy"></div>
+                        </div>
+                    </div>
+                    
+                    <div class="control-group">
+                        <label>Logo Placement</label>
+                        <div class="placement-options">
+                            <div class="placement-option selected" data-placement="center-chest">Center Chest</div>
+                            <div class="placement-option" data-placement="left-chest">Left Chest</div>
+                            <div class="placement-option" data-placement="full-front">Full Front</div>
+                            <div class="placement-option" data-placement="back">Back</div>
+                            <div class="placement-option" data-placement="left-sleeve">L. Sleeve</div>
+                            <div class="placement-option" data-placement="right-sleeve">R. Sleeve</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="customizer-preview animate-on-scroll">
+                    <div class="mockup-container">
+                        <div class="mockup-garment" id="mockupGarment">
+                            <!-- SVG Hoodie -->
+                            <svg viewBox="0 0 300 350" id="garmentSvg">
+                                <!-- Hood -->
+                                <path d="M100 50 Q150 20 200 50 Q210 80 200 100 L100 100 Q90 80 100 50" fill="currentColor" opacity="0.9"/>
+                                <!-- Body -->
+                                <path d="M70 100 L100 100 L100 120 L80 130 L80 300 L220 300 L220 130 L200 120 L200 100 L230 100 L250 130 L250 300 Q250 320 230 320 L70 320 Q50 320 50 300 L50 130 Z" fill="currentColor"/>
+                                <!-- Left Sleeve -->
+                                <path d="M50 130 L30 200 L50 210 L70 150 Z" fill="currentColor" opacity="0.85"/>
+                                <!-- Right Sleeve -->
+                                <path d="M250 130 L270 200 L250 210 L230 150 Z" fill="currentColor" opacity="0.85"/>
+                                <!-- Pocket -->
+                                <path d="M100 200 L200 200 L200 250 L100 250 Z" fill="currentColor" opacity="0.7" stroke="currentColor" stroke-width="1"/>
+                                <!-- Drawstrings -->
+                                <line x1="130" y1="105" x2="130" y2="160" stroke="rgba(255,255,255,0.3)" stroke-width="2"/>
+                                <line x1="170" y1="105" x2="170" y2="160" stroke="rgba(255,255,255,0.3)" stroke-width="2"/>
+                            </svg>
+                        </div>
+                        <div class="mockup-logo center-chest" id="mockupLogo">
+                            <img src="" alt="Your Logo" id="logoPreview" style="display: none;">
+                            <span id="logoPlaceholder" style="color: rgba(255,255,255,0.3); font-size: 0.9rem;">Your logo here</span>
+                        </div>
+                    </div>
+                    <a href="#" class="btn btn-secondary download-mockup" id="downloadMockup" style="display: none;">
+                        Download Mockup
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============ FABRIC COMPARISON ============ -->
+    <section class="tool-section" id="fabric">
+        <div class="tool-container">
+            <div class="section-header animate-on-scroll">
+                <span class="section-label">Tool #3</span>
+                <h2 class="section-title">Fabric Weight Guide</h2>
+                <p class="section-subtitle">GSM (grams per square meter) determines how heavy and thick your fabric feels. Explore the range.</p>
+            </div>
+            
+            <div class="fabric-comparison animate-on-scroll">
+                <div class="comparison-visual">
+                    <div class="fabric-sample">
+                        <div class="fabric-visual light">🪶</div>
+                        <h4>Lightweight</h4>
+                        <p>Thin, breathable</p>
+                    </div>
+                    <div class="fabric-sample">
+                        <div class="fabric-visual heavy">🪨</div>
+                        <h4>Heavyweight</h4>
+                        <p>Thick, premium</p>
+                    </div>
+                </div>
+                
+                <div class="gsm-slider">
+                    <div class="gsm-track"></div>
+                    <input type="range" class="gsm-range" id="gsmSlider" min="140" max="420" value="280" step="10">
+                    <div class="gsm-labels">
+                        <span>140 GSM</span>
+                        <span>280 GSM</span>
+                        <span>420 GSM</span>
+                    </div>
+                </div>
+                
+                <div class="gsm-value-display">
+                    <span class="value" id="gsmValue">280</span>
+                    <span class="unit">GSM</span>
+                    <p class="description" id="gsmDescription">Mid-weight fabric. Good balance of comfort and durability. Suitable for year-round wear.</p>
+                </div>
+                
+                <div class="gsm-info-grid">
+                    <div class="gsm-info-card" data-range="light">
+                        <h4>T-Shirts</h4>
+                        <div class="range">180–260 GSM</div>
+                        <p>Light (summer) to mid-weight (retail quality)</p>
+                    </div>
+                    <div class="gsm-info-card active" data-range="medium">
+                        <h4>Sweatshirts</h4>
+                        <div class="range">260–350 GSM</div>
+                        <p>Standard fleece to premium weight</p>
+                    </div>
+                    <div class="gsm-info-card" data-range="heavy">
+                        <h4>Hoodies</h4>
+                        <div class="range">280–420 GSM</div>
+                        <p>Light fleece to luxury heavyweight</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA -->
+    <section style="background: var(--navy); padding: 6rem 4rem; text-align: center; color: var(--cream);">
+        <div class="animate-on-scroll">
+            <h2 style="font-family: var(--font-display); font-size: 2rem; margin-bottom: 1rem;">Ready to bring your designs to life?</h2>
+            <p style="opacity: 0.8; max-width: 500px; margin: 0 auto 2rem;">These tools give you estimates. For exact pricing and to start production, get in touch.</p>
+            <div style="display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;">
+                <a href="index.html#quote" class="btn btn-primary" style="background: var(--coral);">Get a Real Quote</a>
+                <a href="samples.html" class="btn btn-secondary" style="border-color: var(--cream); color: var(--cream);">Order Samples First</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-brand">
+                <a href="index.html" class="logo">Loom<span>ry</span></a>
+                <p>Premium apparel manufacturing for emerging brands. From concept to closet.</p>
+                <a href="mailto:hello@loomry.org" class="footer-email">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
+                        <polyline points="22,6 12,13 2,6"/>
+                    </svg>
+                    hello@loomry.org
+                </a>
+            </div>
+            <div class="footer-column">
+                <h4>Products</h4>
+                <a href="index.html#products">T-Shirts</a>
+                <a href="index.html#products">Hoodies</a>
+                <a href="index.html#products">Sweatshirts</a>
+                <a href="index.html#tiers">Quality Tiers</a>
+            </div>
+            <div class="footer-column">
+                <h4>Resources</h4>
+                <a href="pricing.html">MOQ & Pricing</a>
+                <a href="shipping.html">Shipping Info</a>
+                <a href="samples.html">Free Samples</a>
+                <a href="tools.html">Design Tools</a>
+            </div>
+            <div class="footer-column">
+                <h4>Company</h4>
+                <a href="about.html">About Us</a>
+                <a href="index.html#quote">Contact</a>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>© 2025 Loomry. All rights reserved.</p>
+        </div>
+    </footer>
+    
+    <!-- WhatsApp Button -->
+    <a href="https://wa.me/YOUR_WHATSAPP_NUMBER?text=Hi%20Loomry!" class="whatsapp-float" target="_blank" rel="noopener">
+        <span class="whatsapp-tooltip">Chat with us!</span>
+        <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+    </a>
+
+    <script>
+        // ============ NAVIGATION ============
+        function toggleMobileMenu() {
+            const menu = document.getElementById('mobileMenu');
+            const btn = document.querySelector('.mobile-menu-btn');
+            menu.classList.toggle('active');
+            btn.classList.toggle('active');
+            document.body.style.overflow = menu.classList.contains('active') ? 'hidden' : '';
+        }
+        
+        function closeMobileMenu() {
+            const menu = document.getElementById('mobileMenu');
+            const btn = document.querySelector('.mobile-menu-btn');
+            menu.classList.remove('active');
+            btn.classList.remove('active');
+            document.body.style.overflow = '';
+        }
+        
+        const navbar = document.getElementById('navbar');
+        window.addEventListener('scroll', () => {
+            navbar.classList.toggle('scrolled', window.scrollY > 50);
+        });
+        
+        // Scroll animations
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) entry.target.classList.add('visible');
+            });
+        }, { threshold: 0.1 });
+        
+        document.querySelectorAll('.animate-on-scroll').forEach(el => observer.observe(el));
+        
+        // ============ PRICE CALCULATOR ============
+        const pricing = {
+            tshirt: { tier1: 10, tier2: 15, tier3: 24 },
+            hoodie: { tier1: 22, tier2: 30, tier3: 50 },
+            fullzip: { tier1: 25, tier2: 35, tier3: 55 },
+            crewneck: { tier1: 18, tier2: 27, tier3: 42 }
+        };
+        
+        const printPricing = {
+            none: 0,
+            screen1: 2,
+            screen2: 3.5,
+            embroidery1: 4,
+            embroidery2: 7
+        };
+        
+        const labelPricing = {
+            none: 0,
+            woven: 0.75,
+            printed: 0.50,
+            full: 1.50
+        };
+        
+        function calculatePrice() {
+            const product = document.getElementById('calc-product').value;
+            const tier = document.getElementById('calc-tier').value;
+            const quantity = parseInt(document.getElementById('calc-quantity').value) || 100;
+            const print = document.getElementById('calc-print').value;
+            const labels = document.getElementById('calc-labels').value;
+            
+            const basePrice = pricing[product][tier];
+            const printPrice = printPricing[print];
+            const labelPrice = labelPricing[labels];
+            
+            const unitTotal = basePrice + printPrice + labelPrice;
+            const subtotal = unitTotal * quantity;
+            
+            // Volume discount
+            let discountPercent = 0;
+            if (quantity >= 1000) discountPercent = 20;
+            else if (quantity >= 500) discountPercent = 12;
+            else if (quantity >= 200) discountPercent = 5;
+            
+            const discount = subtotal * (discountPercent / 100);
+            const total = subtotal - discount;
+            const finalUnit = total / quantity;
+            
+            // Update display
+            document.getElementById('result-base').textContent = '$' + basePrice.toFixed(2);
+            document.getElementById('result-print').textContent = '+$' + printPrice.toFixed(2);
+            document.getElementById('result-labels').textContent = '+$' + labelPrice.toFixed(2);
+            document.getElementById('result-unit').textContent = '$' + unitTotal.toFixed(2);
+            document.getElementById('result-qty').textContent = quantity;
+            document.getElementById('result-subtotal').textContent = '$' + subtotal.toLocaleString();
+            document.getElementById('result-discount').textContent = discountPercent > 0 
+                ? '-$' + discount.toLocaleString() + ' (' + discountPercent + '%)'
+                : '$0';
+            document.getElementById('result-total').textContent = '$' + Math.round(total).toLocaleString();
+            document.getElementById('result-final-unit').textContent = '$' + finalUnit.toFixed(2);
+        }
+        
+        // Attach calculator events
+        ['calc-product', 'calc-tier', 'calc-quantity', 'calc-print', 'calc-labels'].forEach(id => {
+            document.getElementById(id).addEventListener('change', calculatePrice);
+            document.getElementById(id).addEventListener('input', calculatePrice);
+        });
+        
+        calculatePrice(); // Initial calculation
+        
+        // ============ CUSTOMIZER ============
+        let currentColor = '#1a1a1a';
+        let currentPlacement = 'center-chest';
+        
+        // Logo upload
+        document.getElementById('logoInput').addEventListener('change', function(e) {
+            const file = e.target.files[0];
+            if (file) {
+                const reader = new FileReader();
+                reader.onload = function(e) {
+                    const preview = document.getElementById('logoPreview');
+                    const placeholder = document.getElementById('logoPlaceholder');
+                    const uploadBox = document.getElementById('logoUpload');
+                    
+                    preview.src = e.target.result;
+                    preview.style.display = 'block';
+                    placeholder.style.display = 'none';
+                    uploadBox.classList.add('has-logo');
+                    uploadBox.innerHTML = '<img src="' + e.target.result + '" class="logo-preview-small" alt="Uploaded logo"><p style="margin-top: 0.5rem; font-size: 0.85rem;">Click to change</p><input type="file" id="logoInput" accept="image/*">';
+                    
+                    // Re-attach event
+                    document.getElementById('logoInput').addEventListener('change', arguments.callee);
+                };
+                reader.readAsDataURL(file);
+            }
+        });
+        
+        // Color swatches
+        document.querySelectorAll('.color-swatch').forEach(swatch => {
+            swatch.addEventListener('click', function() {
+                document.querySelectorAll('.color-swatch').forEach(s => s.classList.remove('selected'));
+                this.classList.add('selected');
+                currentColor = this.dataset.color;
+                document.getElementById('garmentSvg').style.color = currentColor;
+            });
+        });
+        
+        // Placement options
+        document.querySelectorAll('.placement-option').forEach(option => {
+            option.addEventListener('click', function() {
+                document.querySelectorAll('.placement-option').forEach(o => o.classList.remove('selected'));
+                this.classList.add('selected');
+                currentPlacement = this.dataset.placement;
+                
+                const logoDiv = document.getElementById('mockupLogo');
+                logoDiv.className = 'mockup-logo ' + currentPlacement;
+            });
+        });
+        
+        // Product change (could swap SVG in future)
+        document.getElementById('custom-product').addEventListener('change', function() {
+            // For now, same SVG works for all products
+            // Could load different SVGs based on selection
+        });
+        
+        // ============ FABRIC COMPARISON ============
+        const gsmDescriptions = {
+            140: "Ultra-lightweight. Thin promotional tee territory. Breathable but not durable.",
+            160: "Light summer weight. Okay for basics, may feel cheap for retail.",
+            180: "Standard lightweight tee. Common for budget retail.",
+            200: "Nice everyday weight. Good for graphic tees.",
+            220: "Mid-weight tee. Quality retail feel. Our Tier 2 t-shirt range.",
+            240: "Premium tee weight. Substantial feel without being heavy.",
+            260: "Heavy tee / light sweatshirt. Premium positioning.",
+            280: "Light fleece. Good for lighter hoodies and sweats.",
+            300: "Standard fleece weight. Comfortable year-round.",
+            320: "Quality retail hoodie weight. Our Tier 2 hoodie range.",
+            350: "Premium fleece. Noticeable weight and quality.",
+            380: "Heavy premium. Luxury streetwear territory.",
+            400: "Very heavy. Winter-weight, ultra-premium feel.",
+            420: "Maximum weight. Luxury brand quality. Our Tier 3 range."
+        };
+        
+        function updateGsmDisplay(value) {
+            document.getElementById('gsmValue').textContent = value;
+            
+            // Find closest description
+            const keys = Object.keys(gsmDescriptions).map(Number);
+            const closest = keys.reduce((prev, curr) => 
+                Math.abs(curr - value) < Math.abs(prev - value) ? curr : prev
+            );
+            
+            document.getElementById('gsmDescription').textContent = gsmDescriptions[closest];
+            
+            // Update info cards
+            document.querySelectorAll('.gsm-info-card').forEach(card => {
+                card.classList.remove('active');
+            });
+            
+            if (value <= 260) {
+                document.querySelector('[data-range="light"]').classList.add('active');
+            } else if (value <= 350) {
+                document.querySelector('[data-range="medium"]').classList.add('active');
+            } else {
+                document.querySelector('[data-range="heavy"]').classList.add('active');
+            }
+        }
+        
+        document.getElementById('gsmSlider').addEventListener('input', function() {
+            updateGsmDisplay(parseInt(this.value));
+        });
+    </script>
+</body>
+</html>
