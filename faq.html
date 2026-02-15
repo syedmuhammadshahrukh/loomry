@@ -1,0 +1,928 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FAQ — Loomry | Apparel Manufacturing Questions Answered</title>
+    <meta name="description" content="Common questions about custom apparel manufacturing. MOQs, pricing, timelines, quality tiers, shipping, and more — all answered.">
+    
+    <link rel="icon" type="image/svg+xml" href="favicon.svg">
+    <meta name="theme-color" content="#1a2b4a">
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=DM+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    
+    <style>
+        .faq-hero {
+            background: linear-gradient(135deg, var(--navy) 0%, var(--navy-light) 100%);
+            color: var(--cream);
+            padding: 10rem 2rem 4rem;
+            text-align: center;
+        }
+        
+        .faq-hero h1 {
+            font-family: var(--font-display);
+            font-size: clamp(2.5rem, 5vw, 3.5rem);
+            font-weight: 700;
+            margin-bottom: 1rem;
+        }
+        
+        .faq-hero p {
+            font-size: 1.2rem;
+            opacity: 0.85;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        
+        .faq-section {
+            padding: 4rem 2rem;
+            background: var(--cream);
+        }
+        
+        .faq-container {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+        
+        .faq-nav {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            justify-content: center;
+            margin-bottom: 3rem;
+            position: sticky;
+            top: 70px;
+            background: var(--cream);
+            padding: 1rem 0;
+            z-index: 10;
+        }
+        
+        .faq-nav-btn {
+            padding: 0.6rem 1.25rem;
+            background: var(--white);
+            border: 2px solid var(--cream-dark);
+            border-radius: 100px;
+            font-size: 0.9rem;
+            font-weight: 500;
+            color: var(--text-muted);
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+        
+        .faq-nav-btn:hover {
+            border-color: var(--coral);
+            color: var(--coral);
+        }
+        
+        .faq-nav-btn.active {
+            background: var(--navy);
+            border-color: var(--navy);
+            color: var(--cream);
+        }
+        
+        .faq-category {
+            margin-bottom: 3rem;
+            scroll-margin-top: 150px;
+        }
+        
+        .faq-category-header {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+            padding-bottom: 1rem;
+            border-bottom: 2px solid var(--cream-dark);
+        }
+        
+        .faq-category-icon {
+            width: 48px;
+            height: 48px;
+            background: var(--coral);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+        }
+        
+        .faq-category-header h2 {
+            font-family: var(--font-display);
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--navy);
+        }
+        
+        .faq-item {
+            background: var(--white);
+            border-radius: 16px;
+            margin-bottom: 1rem;
+            overflow: hidden;
+            box-shadow: 0 2px 8px rgba(26, 43, 74, 0.04);
+            transition: box-shadow 0.3s ease;
+        }
+        
+        .faq-item:hover {
+            box-shadow: 0 4px 16px rgba(26, 43, 74, 0.08);
+        }
+        
+        .faq-question {
+            width: 100%;
+            padding: 1.25rem 1.5rem;
+            background: none;
+            border: none;
+            text-align: left;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 1rem;
+            font-family: var(--font-body);
+            font-size: 1rem;
+            font-weight: 600;
+            color: var(--navy);
+            transition: background 0.2s ease;
+        }
+        
+        .faq-question:hover {
+            background: var(--cream);
+        }
+        
+        .faq-question svg {
+            width: 20px;
+            height: 20px;
+            flex-shrink: 0;
+            transition: transform 0.3s ease;
+            color: var(--coral);
+        }
+        
+        .faq-item.open .faq-question svg {
+            transform: rotate(180deg);
+        }
+        
+        .faq-answer {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease, padding 0.3s ease;
+        }
+        
+        .faq-item.open .faq-answer {
+            max-height: 500px;
+        }
+        
+        .faq-answer-content {
+            padding: 0 1.5rem 1.5rem;
+            color: var(--text-muted);
+            line-height: 1.7;
+        }
+        
+        .faq-answer-content p {
+            margin-bottom: 1rem;
+        }
+        
+        .faq-answer-content p:last-child {
+            margin-bottom: 0;
+        }
+        
+        .faq-answer-content ul {
+            margin: 0.5rem 0 1rem;
+            padding-left: 1.5rem;
+        }
+        
+        .faq-answer-content li {
+            margin-bottom: 0.5rem;
+        }
+        
+        .faq-answer-content strong {
+            color: var(--navy);
+        }
+        
+        .faq-answer-content a {
+            color: var(--coral);
+            text-decoration: none;
+            font-weight: 500;
+        }
+        
+        .faq-answer-content a:hover {
+            text-decoration: underline;
+        }
+        
+        /* Still Have Questions CTA */
+        .faq-cta {
+            background: var(--white);
+            border-radius: 24px;
+            padding: 3rem;
+            text-align: center;
+            margin-top: 3rem;
+            box-shadow: 0 4px 20px rgba(26, 43, 74, 0.08);
+        }
+        
+        .faq-cta h3 {
+            font-family: var(--font-display);
+            font-size: 1.5rem;
+            margin-bottom: 0.5rem;
+        }
+        
+        .faq-cta p {
+            color: var(--text-muted);
+            margin-bottom: 1.5rem;
+        }
+        
+        .faq-cta-buttons {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+        
+        /* Search */
+        .faq-search {
+            max-width: 500px;
+            margin: 0 auto 2rem;
+            position: relative;
+        }
+        
+        .faq-search input {
+            width: 100%;
+            padding: 1rem 1.5rem 1rem 3rem;
+            border: 2px solid var(--cream-dark);
+            border-radius: 100px;
+            font-size: 1rem;
+            font-family: var(--font-body);
+            transition: border-color 0.2s;
+        }
+        
+        .faq-search input:focus {
+            outline: none;
+            border-color: var(--coral);
+        }
+        
+        .faq-search svg {
+            position: absolute;
+            left: 1rem;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 20px;
+            height: 20px;
+            color: var(--text-muted);
+        }
+        
+        .no-results {
+            text-align: center;
+            padding: 3rem;
+            color: var(--text-muted);
+        }
+        
+        .no-results .icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+        
+        /* Responsive */
+        @media (max-width: 768px) {
+            .faq-hero {
+                padding: 8rem 1.5rem 3rem;
+            }
+            
+            .faq-section {
+                padding: 2rem 1rem;
+            }
+            
+            .faq-nav {
+                top: 60px;
+                padding: 0.75rem 0;
+            }
+            
+            .faq-nav-btn {
+                padding: 0.5rem 1rem;
+                font-size: 0.8rem;
+            }
+            
+            .faq-question {
+                padding: 1rem 1.25rem;
+                font-size: 0.95rem;
+            }
+            
+            .faq-answer-content {
+                padding: 0 1.25rem 1.25rem;
+                font-size: 0.95rem;
+            }
+            
+            .faq-cta {
+                padding: 2rem 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav id="navbar">
+        <a href="index.html" class="logo">Loom<span>ry</span></a>
+        <div class="nav-links">
+            <a href="tshirts.html">Products</a>
+            <a href="index.html#tiers">Quality Tiers</a>
+            <a href="pricing.html">Pricing</a>
+            <a href="tools.html">Tools</a>
+            <a href="index.html#quote" class="nav-cta">Get a Quote</a>
+        </div>
+        <button class="mobile-menu-btn" aria-label="Menu" onclick="toggleMobileMenu()">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+    </nav>
+    
+    <div class="mobile-menu" id="mobileMenu">
+        <a href="tshirts.html" onclick="closeMobileMenu()">T-Shirts</a>
+        <a href="hoodies.html" onclick="closeMobileMenu()">Hoodies</a>
+        <a href="sweatshirts.html" onclick="closeMobileMenu()">Sweatshirts</a>
+        <a href="pricing.html" onclick="closeMobileMenu()">Pricing</a>
+        <a href="tools.html" onclick="closeMobileMenu()">Design Tools</a>
+        <a href="faq.html" onclick="closeMobileMenu()">FAQ</a>
+        <a href="index.html#quote" class="btn btn-primary" onclick="closeMobileMenu()">Get a Quote</a>
+    </div>
+
+    <!-- Hero -->
+    <header class="faq-hero">
+        <h1>Frequently Asked Questions</h1>
+        <p>Everything you need to know about custom apparel manufacturing with Loomry.</p>
+    </header>
+
+    <!-- FAQ Section -->
+    <section class="faq-section">
+        <div class="faq-container">
+            <!-- Search -->
+            <div class="faq-search">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <circle cx="11" cy="11" r="8"/>
+                    <path d="M21 21l-4.35-4.35"/>
+                </svg>
+                <input type="text" id="faqSearch" placeholder="Search questions..." oninput="filterFAQs()">
+            </div>
+            
+            <!-- Category Navigation -->
+            <div class="faq-nav">
+                <button class="faq-nav-btn active" data-category="all" onclick="filterCategory('all')">All</button>
+                <button class="faq-nav-btn" data-category="getting-started" onclick="filterCategory('getting-started')">Getting Started</button>
+                <button class="faq-nav-btn" data-category="pricing" onclick="filterCategory('pricing')">Pricing & MOQ</button>
+                <button class="faq-nav-btn" data-category="quality" onclick="filterCategory('quality')">Quality & Materials</button>
+                <button class="faq-nav-btn" data-category="production" onclick="filterCategory('production')">Production</button>
+                <button class="faq-nav-btn" data-category="shipping" onclick="filterCategory('shipping')">Shipping</button>
+            </div>
+
+            <!-- Getting Started -->
+            <div class="faq-category" id="getting-started" data-category="getting-started">
+                <div class="faq-category-header">
+                    <div class="faq-category-icon">🚀</div>
+                    <h2>Getting Started</h2>
+                </div>
+                
+                <div class="faq-item">
+                    <button class="faq-question" onclick="toggleFAQ(this)">
+                        <span>How do I start working with Loomry?</span>
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>
+                    </button>
+                    <div class="faq-answer">
+                        <div class="faq-answer-content">
+                            <p>Getting started is simple:</p>
+                            <ul>
+                                <li><strong>Submit a quote request</strong> — Tell us about your project (product type, quantity, quality tier)</li>
+                                <li><strong>Review your quote</strong> — We'll send detailed pricing within 24-48 hours</li>
+                                <li><strong>Order samples</strong> — See and feel the quality before committing</li>
+                                <li><strong>Approve & produce</strong> — Once you approve, production begins</li>
+                            </ul>
+                            <p>No upfront fees to get started. <a href="index.html#quote">Request a quote now →</a></p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <button class="faq-question" onclick="toggleFAQ(this)">
+                        <span>Do I need to have my designs ready?</span>
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>
+                    </button>
+                    <div class="faq-answer">
+                        <div class="faq-answer-content">
+                            <p>Not necessarily! You can approach us at any stage:</p>
+                            <ul>
+                                <li><strong>Design ready</strong> — Send us your print-ready files (AI, PDF, PNG at 300dpi)</li>
+                                <li><strong>Concept only</strong> — Share your vision and we can connect you with design partners</li>
+                                <li><strong>Just exploring</strong> — Request blank samples to understand quality before designing</li>
+                            </ul>
+                            <p>We're happy to guide you through the process regardless of where you're starting.</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <button class="faq-question" onclick="toggleFAQ(this)">
+                        <span>Can I order samples before placing a full order?</span>
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>
+                    </button>
+                    <div class="faq-answer">
+                        <div class="faq-answer-content">
+                            <p><strong>Yes, absolutely!</strong> We strongly encourage sampling before production. Here's how it works:</p>
+                            <ul>
+                                <li><strong>Blank samples</strong> — Free for serious inquiries (just cover shipping)</li>
+                                <li><strong>Printed/branded samples</strong> — Small fee applies to cover setup costs</li>
+                                <li><strong>Sample turnaround</strong> — Usually 5-7 business days</li>
+                            </ul>
+                            <p><a href="samples.html">Request free samples →</a></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Pricing & MOQ -->
+            <div class="faq-category" id="pricing" data-category="pricing">
+                <div class="faq-category-header">
+                    <div class="faq-category-icon">💰</div>
+                    <h2>Pricing & MOQ</h2>
+                </div>
+                
+                <div class="faq-item">
+                    <button class="faq-question" onclick="toggleFAQ(this)">
+                        <span>What are your minimum order quantities (MOQ)?</span>
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>
+                    </button>
+                    <div class="faq-answer">
+                        <div class="faq-answer-content">
+                            <p>MOQs vary by product and quality tier:</p>
+                            <ul>
+                                <li><strong>T-Shirts:</strong> 150 pieces per style/color (Tier 1-2), 500 pieces (Tier 3)</li>
+                                <li><strong>Hoodies:</strong> 100 pieces per style/color (Tier 1-2), 500 pieces (Tier 3)</li>
+                                <li><strong>Sweatshirts:</strong> 100 pieces per style/color (Tier 1-2), 500 pieces (Tier 3)</li>
+                            </ul>
+                            <p>These quantities are per style/color combination. For example, if you want Black and White hoodies, that's 100 Black + 100 White = 200 total minimum.</p>
+                            <p><a href="pricing.html">View full pricing details →</a></p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <button class="faq-question" onclick="toggleFAQ(this)">
+                        <span>What affects the price per unit?</span>
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>
+                    </button>
+                    <div class="faq-answer">
+                        <div class="faq-answer-content">
+                            <p>Several factors influence your final unit price:</p>
+                            <ul>
+                                <li><strong>Quality tier</strong> — Higher tiers use premium materials and construction</li>
+                                <li><strong>Quantity</strong> — Larger orders get volume discounts (5-15% off)</li>
+                                <li><strong>Decoration method</strong> — Screen print vs. embroidery vs. DTG</li>
+                                <li><strong>Number of print locations</strong> — Front only vs. front + back</li>
+                                <li><strong>Custom labels & packaging</strong> — Woven labels, hangtags, custom bags</li>
+                            </ul>
+                            <p>Use our <a href="tools.html#calculator">price calculator</a> for estimates.</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <button class="faq-question" onclick="toggleFAQ(this)">
+                        <span>Are there any hidden fees?</span>
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>
+                    </button>
+                    <div class="faq-answer">
+                        <div class="faq-answer-content">
+                            <p><strong>No hidden fees.</strong> Your quote includes everything except:</p>
+                            <ul>
+                                <li><strong>Shipping</strong> — Quoted separately based on destination and method</li>
+                                <li><strong>Import duties/taxes</strong> — Vary by country, paid at delivery</li>
+                            </ul>
+                            <p>We believe in transparent pricing. The quote you approve is the price you pay (plus shipping). No surprise setup fees, artwork charges, or handling costs added later.</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <button class="faq-question" onclick="toggleFAQ(this)">
+                        <span>What payment methods do you accept?</span>
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>
+                    </button>
+                    <div class="faq-answer">
+                        <div class="faq-answer-content">
+                            <p>We accept:</p>
+                            <ul>
+                                <li>Bank transfer (Wire/SWIFT)</li>
+                                <li>PayPal</li>
+                                <li>Credit/Debit cards (via Stripe)</li>
+                            </ul>
+                            <p><strong>Payment terms:</strong> 50% deposit to start production, 50% balance before shipping. For returning customers with good history, we offer NET 30 terms on a case-by-case basis.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Quality & Materials -->
+            <div class="faq-category" id="quality" data-category="quality">
+                <div class="faq-category-header">
+                    <div class="faq-category-icon">✨</div>
+                    <h2>Quality & Materials</h2>
+                </div>
+                
+                <div class="faq-item">
+                    <button class="faq-question" onclick="toggleFAQ(this)">
+                        <span>What's the difference between your quality tiers?</span>
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>
+                    </button>
+                    <div class="faq-answer">
+                        <div class="faq-answer-content">
+                            <p>Our three tiers are designed for different brand positions:</p>
+                            <ul>
+                                <li><strong>Tier 1 (Budget)</strong> — Good quality basics. 180-200 GSM for tees, cotton-poly blends. Great for startups testing the market or merch.</li>
+                                <li><strong>Tier 2 (Core)</strong> — Retail-ready quality. 200-240 GSM ringspun cotton, side-seamed construction, custom labels included. Competes with mall brands.</li>
+                                <li><strong>Tier 3 (Premium)</strong> — Luxury streetwear grade. 240-420 GSM heavyweight fabrics, flatlock seams, custom knit options. Competes with designer labels.</li>
+                            </ul>
+                            <p>Not sure which tier? <a href="samples.html">Order samples from each tier</a> to feel the difference.</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <button class="faq-question" onclick="toggleFAQ(this)">
+                        <span>What does GSM mean?</span>
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>
+                    </button>
+                    <div class="faq-answer">
+                        <div class="faq-answer-content">
+                            <p><strong>GSM = Grams per Square Meter.</strong> It measures fabric weight/thickness.</p>
+                            <ul>
+                                <li><strong>140-180 GSM</strong> — Lightweight, thin tees (promotional quality)</li>
+                                <li><strong>180-220 GSM</strong> — Standard t-shirt weight (everyday retail)</li>
+                                <li><strong>220-260 GSM</strong> — Premium heavyweight tees (luxury feel)</li>
+                                <li><strong>280-350 GSM</strong> — Standard fleece/hoodies</li>
+                                <li><strong>350-420 GSM</strong> — Heavyweight luxury fleece</li>
+                            </ul>
+                            <p>Higher GSM = heavier, more substantial feel. Try our <a href="tools.html#fabric">fabric weight guide</a> to explore.</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <button class="faq-question" onclick="toggleFAQ(this)">
+                        <span>What printing methods do you offer?</span>
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>
+                    </button>
+                    <div class="faq-answer">
+                        <div class="faq-answer-content">
+                            <p>We offer multiple decoration methods:</p>
+                            <ul>
+                                <li><strong>Screen Printing</strong> — Best for bulk orders, bold colors, durability. 1-4 colors most economical.</li>
+                                <li><strong>DTG (Direct-to-Garment)</strong> — Best for complex designs, photos, gradients. No color limits.</li>
+                                <li><strong>Embroidery</strong> — Premium look for logos. Tier 2-3 recommended for best results.</li>
+                                <li><strong>Heat Transfer</strong> — Good for small runs, all-over prints.</li>
+                            </ul>
+                            <p>We'll recommend the best method based on your design, quantity, and budget.</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <button class="faq-question" onclick="toggleFAQ(this)">
+                        <span>Can I get custom labels and packaging?</span>
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>
+                    </button>
+                    <div class="faq-answer">
+                        <div class="faq-answer-content">
+                            <p><strong>Yes!</strong> Branding options include:</p>
+                            <ul>
+                                <li><strong>Woven neck labels</strong> — Replace manufacturer tags with your brand (included in Tier 2-3)</li>
+                                <li><strong>Printed labels</strong> — More affordable alternative</li>
+                                <li><strong>Hangtags</strong> — Custom branded tags with your logo, care info, etc.</li>
+                                <li><strong>Custom packaging</strong> — Poly bags, tissue paper, stickers, boxes</li>
+                            </ul>
+                            <p>Full branding is included in Tier 3. For Tier 1-2, these can be added at extra cost.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Production -->
+            <div class="faq-category" id="production" data-category="production">
+                <div class="faq-category-header">
+                    <div class="faq-category-icon">🏭</div>
+                    <h2>Production</h2>
+                </div>
+                
+                <div class="faq-item">
+                    <button class="faq-question" onclick="toggleFAQ(this)">
+                        <span>How long does production take?</span>
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>
+                    </button>
+                    <div class="faq-answer">
+                        <div class="faq-answer-content">
+                            <p>Typical production timelines after approval:</p>
+                            <ul>
+                                <li><strong>Tier 1:</strong> 2-3 weeks</li>
+                                <li><strong>Tier 2:</strong> 3-4 weeks</li>
+                                <li><strong>Tier 3:</strong> 4-6 weeks (custom fabric may add time)</li>
+                            </ul>
+                            <p>Add shipping time (1-2 weeks by air, 4-6 weeks by sea). Rush production available for urgent orders at additional cost.</p>
+                            <p><a href="shipping.html">View full timeline breakdown →</a></p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <button class="faq-question" onclick="toggleFAQ(this)">
+                        <span>Where are the products manufactured?</span>
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>
+                    </button>
+                    <div class="faq-answer">
+                        <div class="faq-answer-content">
+                            <p>We work with vetted manufacturing partners primarily in:</p>
+                            <ul>
+                                <li><strong>Pakistan</strong> — Excellent cotton quality, competitive pricing</li>
+                                <li><strong>Bangladesh</strong> — Large-scale production capability</li>
+                                <li><strong>Turkey</strong> — Premium European-quality manufacturing</li>
+                                <li><strong>Portugal</strong> — Luxury tier, fastest shipping to EU</li>
+                            </ul>
+                            <p>All our partners are audited for quality standards and ethical working conditions.</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <button class="faq-question" onclick="toggleFAQ(this)">
+                        <span>Will I see a sample before full production?</span>
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>
+                    </button>
+                    <div class="faq-answer">
+                        <div class="faq-answer-content">
+                            <p><strong>Yes — approval samples are standard for all orders.</strong></p>
+                            <p>Here's the process:</p>
+                            <ul>
+                                <li>We produce 1-2 samples with your actual design</li>
+                                <li>You review and approve (or request changes)</li>
+                                <li>Only after your approval does bulk production begin</li>
+                            </ul>
+                            <p>This ensures the final product matches your expectations exactly.</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <button class="faq-question" onclick="toggleFAQ(this)">
+                        <span>What if there's a quality issue with my order?</span>
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>
+                    </button>
+                    <div class="faq-answer">
+                        <div class="faq-answer-content">
+                            <p>We stand behind our quality:</p>
+                            <ul>
+                                <li><strong>Pre-shipment QC</strong> — We inspect every order before it ships</li>
+                                <li><strong>Photo documentation</strong> — You receive photos of finished goods</li>
+                                <li><strong>Issue resolution</strong> — If defects are found, we replace affected units at no cost</li>
+                            </ul>
+                            <p>Report any issues within 14 days of delivery with photos, and we'll make it right.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Shipping -->
+            <div class="faq-category" id="shipping" data-category="shipping">
+                <div class="faq-category-header">
+                    <div class="faq-category-icon">📦</div>
+                    <h2>Shipping & Delivery</h2>
+                </div>
+                
+                <div class="faq-item">
+                    <button class="faq-question" onclick="toggleFAQ(this)">
+                        <span>Where do you ship to?</span>
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>
+                    </button>
+                    <div class="faq-answer">
+                        <div class="faq-answer-content">
+                            <p><strong>Worldwide.</strong> We ship to all major markets including:</p>
+                            <ul>
+                                <li>United States & Canada</li>
+                                <li>European Union & UK</li>
+                                <li>Australia & New Zealand</li>
+                                <li>Middle East & Asia</li>
+                            </ul>
+                            <p>Shipping costs and times vary by destination. We provide full shipping quotes before you commit.</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <button class="faq-question" onclick="toggleFAQ(this)">
+                        <span>What shipping methods are available?</span>
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>
+                    </button>
+                    <div class="faq-answer">
+                        <div class="faq-answer-content">
+                            <p>We offer multiple shipping options:</p>
+                            <ul>
+                                <li><strong>Air Freight</strong> — 7-14 days, best for urgent/smaller orders</li>
+                                <li><strong>Sea Freight</strong> — 4-6 weeks, most economical for large orders</li>
+                                <li><strong>Express Courier</strong> — 3-5 days (DHL, FedEx), premium cost</li>
+                            </ul>
+                            <p>For orders over 500 units, sea freight typically makes the most economic sense.</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <button class="faq-question" onclick="toggleFAQ(this)">
+                        <span>Do I have to pay customs/import duties?</span>
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>
+                    </button>
+                    <div class="faq-answer">
+                        <div class="faq-answer-content">
+                            <p><strong>Yes, import duties are the buyer's responsibility.</strong> These vary by country:</p>
+                            <ul>
+                                <li><strong>USA:</strong> Usually 12-20% on apparel (may be exempt under certain thresholds)</li>
+                                <li><strong>EU:</strong> ~12% duty + local VAT</li>
+                                <li><strong>UK:</strong> ~12% duty + 20% VAT</li>
+                                <li><strong>Australia:</strong> 5% duty + 10% GST</li>
+                            </ul>
+                            <p>We can ship DDP (Delivered Duty Paid) if you prefer — duties included in your quote upfront.</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <button class="faq-question" onclick="toggleFAQ(this)">
+                        <span>Can you ship directly to my customers (dropshipping)?</span>
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>
+                    </button>
+                    <div class="faq-answer">
+                        <div class="faq-answer-content">
+                            <p><strong>We focus on bulk manufacturing, not dropshipping.</strong></p>
+                            <p>However, we can:</p>
+                            <ul>
+                                <li>Ship bulk orders to your 3PL/fulfillment center</li>
+                                <li>Split shipments to multiple warehouse locations</li>
+                                <li>Recommend fulfillment partners we work with</li>
+                            </ul>
+                            <p>For single-unit fulfillment, you'll need a 3PL partner to handle individual orders.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- No Results Message (hidden by default) -->
+            <div class="no-results" id="noResults" style="display: none;">
+                <div class="icon">🔍</div>
+                <h3>No matching questions found</h3>
+                <p>Try different keywords or <a href="index.html#quote">contact us</a> with your question.</p>
+            </div>
+
+            <!-- Still Have Questions CTA -->
+            <div class="faq-cta">
+                <h3>Still have questions?</h3>
+                <p>Can't find what you're looking for? We're here to help.</p>
+                <div class="faq-cta-buttons">
+                    <a href="https://wa.me/46739907855" class="btn btn-primary" target="_blank">
+                        Chat on WhatsApp
+                    </a>
+                    <a href="index.html#quote" class="btn btn-secondary">
+                        Send us a Message
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-brand">
+                <a href="index.html" class="logo">Loom<span>ry</span></a>
+                <p>Premium apparel manufacturing for emerging brands.</p>
+                <a href="mailto:hello@loomry.org" class="footer-email">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
+                        <polyline points="22,6 12,13 2,6"/>
+                    </svg>
+                    hello@loomry.org
+                </a>
+            </div>
+            <div class="footer-column">
+                <h4>Products</h4>
+                <a href="tshirts.html">T-Shirts</a>
+                <a href="hoodies.html">Hoodies</a>
+                <a href="sweatshirts.html">Sweatshirts</a>
+            </div>
+            <div class="footer-column">
+                <h4>Resources</h4>
+                <a href="pricing.html">MOQ & Pricing</a>
+                <a href="shipping.html">Shipping Info</a>
+                <a href="samples.html">Free Samples</a>
+                <a href="tools.html">Design Tools</a>
+            </div>
+            <div class="footer-column">
+                <h4>Company</h4>
+                <a href="about.html">About Us</a>
+                <a href="faq.html">FAQ</a>
+                <a href="index.html#quote">Contact</a>
+            </div>
+        </div>
+        <div class="footer-bottom"><p>© 2025 Loomry. All rights reserved.</p></div>
+    </footer>
+    
+    <a href="https://wa.me/46739907855" class="whatsapp-float" target="_blank" rel="noopener">
+        <span class="whatsapp-tooltip">Chat with us!</span>
+        <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+    </a>
+
+    <script>
+        // Navigation
+        function toggleMobileMenu() {
+            const menu = document.getElementById('mobileMenu');
+            const btn = document.querySelector('.mobile-menu-btn');
+            menu.classList.toggle('active');
+            btn.classList.toggle('active');
+            document.body.style.overflow = menu.classList.contains('active') ? 'hidden' : '';
+        }
+        
+        function closeMobileMenu() {
+            document.getElementById('mobileMenu').classList.remove('active');
+            document.querySelector('.mobile-menu-btn').classList.remove('active');
+            document.body.style.overflow = '';
+        }
+        
+        const navbar = document.getElementById('navbar');
+        window.addEventListener('scroll', () => navbar.classList.toggle('scrolled', window.scrollY > 50));
+        
+        // FAQ Toggle
+        function toggleFAQ(button) {
+            const item = button.parentElement;
+            const wasOpen = item.classList.contains('open');
+            
+            // Close all items in the same category
+            item.parentElement.querySelectorAll('.faq-item').forEach(i => {
+                i.classList.remove('open');
+            });
+            
+            // Toggle clicked item
+            if (!wasOpen) {
+                item.classList.add('open');
+            }
+        }
+        
+        // Category Filter
+        function filterCategory(category) {
+            // Update nav buttons
+            document.querySelectorAll('.faq-nav-btn').forEach(btn => {
+                btn.classList.toggle('active', btn.dataset.category === category);
+            });
+            
+            // Show/hide categories
+            document.querySelectorAll('.faq-category').forEach(cat => {
+                if (category === 'all' || cat.dataset.category === category) {
+                    cat.style.display = 'block';
+                } else {
+                    cat.style.display = 'none';
+                }
+            });
+            
+            // Clear search
+            document.getElementById('faqSearch').value = '';
+            document.getElementById('noResults').style.display = 'none';
+        }
+        
+        // Search Filter
+        function filterFAQs() {
+            const query = document.getElementById('faqSearch').value.toLowerCase().trim();
+            let hasResults = false;
+            
+            // Reset category filter
+            document.querySelectorAll('.faq-nav-btn').forEach(btn => {
+                btn.classList.toggle('active', btn.dataset.category === 'all');
+            });
+            
+            document.querySelectorAll('.faq-category').forEach(category => {
+                category.style.display = 'block';
+                let categoryHasResults = false;
+                
+                category.querySelectorAll('.faq-item').forEach(item => {
+                    const question = item.querySelector('.faq-question span').textContent.toLowerCase();
+                    const answer = item.querySelector('.faq-answer-content').textContent.toLowerCase();
+                    
+                    if (query === '' || question.includes(query) || answer.includes(query)) {
+                        item.style.display = 'block';
+                        categoryHasResults = true;
+                        hasResults = true;
+                    } else {
+                        item.style.display = 'none';
+                    }
+                });
+                
+                // Hide category if no items match
+                if (!categoryHasResults && query !== '') {
+                    category.style.display = 'none';
+                }
+            });
+            
+            // Show/hide no results message
+            document.getElementById('noResults').style.display = (query !== '' && !hasResults) ? 'block' : 'none';
+        }
+    </script>
+</body>
+</html>
