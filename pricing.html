@@ -6,14 +6,6 @@
     <title>MOQ & Pricing — Loomry | Transparent Manufacturing Costs</title>
     <meta name="description" content="Transparent MOQ and pricing for custom apparel manufacturing. See exactly what things cost and why. No hidden fees, no surprises.">
     
-    <meta name="robots" content="index, follow">
-    <link rel="canonical" href="https://loomry.org/pricing">
-    
-    <meta property="og:type" content="website">
-    <meta property="og:url" content="https://loomry.org/pricing">
-    <meta property="og:title" content="MOQ & Pricing — Loomry">
-    <meta property="og:description" content="Transparent pricing for custom apparel. No hidden fees.">
-    
     <link rel="icon" type="image/svg+xml" href="favicon.svg">
     <meta name="theme-color" content="#1a2b4a">
     
@@ -204,24 +196,11 @@
             font-weight: 600;
         }
         
-        .tier-label.tier1 {
-            background: #e8f5e9;
-            color: #2e7d32;
-        }
+        .tier-label.tier1 { background: #e8f5e9; color: #2e7d32; }
+        .tier-label.tier2 { background: #e3f2fd; color: #1565c0; }
+        .tier-label.tier3 { background: #f3e5f5; color: #7b1fa2; }
         
-        .tier-label.tier2 {
-            background: #e3f2fd;
-            color: #1565c0;
-        }
-        
-        .tier-label.tier3 {
-            background: #f3e5f5;
-            color: #7b1fa2;
-        }
-        
-        .volume-section {
-            background: var(--white);
-        }
+        .volume-section { background: var(--white); }
         
         .volume-content {
             max-width: 900px;
@@ -249,20 +228,14 @@
             color: var(--cream);
             font-family: var(--font-display);
             font-weight: 600;
-            font-size: 0.9rem;
         }
         
         .volume-table td {
             border-bottom: 1px solid var(--cream-dark);
         }
         
-        .volume-table tr:last-child td {
-            border-bottom: none;
-        }
-        
-        .volume-table tr:hover td {
-            background: var(--cream);
-        }
+        .volume-table tr:last-child td { border-bottom: none; }
+        .volume-table tr:hover td { background: var(--cream); }
         
         .discount-badge {
             display: inline-block;
@@ -274,9 +247,7 @@
             font-weight: 600;
         }
         
-        .additional-costs {
-            background: var(--cream);
-        }
+        .additional-costs { background: var(--cream); }
         
         .costs-grid {
             display: grid;
@@ -293,10 +264,7 @@
             text-align: center;
         }
         
-        .cost-icon {
-            font-size: 2.5rem;
-            margin-bottom: 1rem;
-        }
+        .cost-icon { font-size: 2.5rem; margin-bottom: 1rem; }
         
         .cost-card h3 {
             font-family: var(--font-display);
@@ -347,13 +315,8 @@
             border-bottom: 1px solid rgba(255, 255, 255, 0.1);
         }
         
-        .calc-row:last-of-type {
-            border-bottom: none;
-        }
-        
-        .calc-label {
-            font-size: 1rem;
-        }
+        .calc-row:last-of-type { border-bottom: none; }
+        .calc-label { font-size: 1rem; }
         
         .calc-value {
             font-family: var(--font-display);
@@ -371,13 +334,8 @@
             align-items: center;
         }
         
-        .calc-total .calc-label {
-            font-weight: 600;
-        }
-        
-        .calc-total .calc-value {
-            font-size: 1.75rem;
-        }
+        .calc-total .calc-label { font-weight: 600; }
+        .calc-total .calc-value { font-size: 1.75rem; }
         
         .note-box {
             background: var(--cream);
@@ -418,29 +376,14 @@
         }
         
         @media (max-width: 1024px) {
-            .pricing-tables-grid {
-                grid-template-columns: 1fr;
-            }
-            
-            .costs-grid {
-                grid-template-columns: 1fr;
-                max-width: 400px;
-            }
+            .pricing-tables-grid { grid-template-columns: 1fr; }
+            .costs-grid { grid-template-columns: 1fr; max-width: 400px; }
         }
         
         @media (max-width: 768px) {
-            .pricing-hero {
-                padding: 8rem 2rem 3rem;
-            }
-            
-            .volume-table {
-                font-size: 0.85rem;
-            }
-            
-            .volume-table th,
-            .volume-table td {
-                padding: 1rem;
-            }
+            .pricing-hero { padding: 8rem 2rem 3rem; }
+            .volume-table { font-size: 0.85rem; }
+            .volume-table th, .volume-table td { padding: 1rem; }
         }
     </style>
 </head>
@@ -449,10 +392,10 @@
     <nav id="navbar">
         <a href="index.html" class="logo">Loom<span>ry</span></a>
         <div class="nav-links">
-            <a href="index.html#products">Products</a>
+            <a href="tshirts.html">Products</a>
             <a href="index.html#tiers">Quality Tiers</a>
             <a href="pricing.html">Pricing</a>
-            <a href="about.html">About</a>
+            <a href="tools.html">Tools</a>
             <a href="index.html#quote" class="nav-cta">Get a Quote</a>
         </div>
         <button class="mobile-menu-btn" aria-label="Menu" onclick="toggleMobileMenu()">
@@ -462,13 +405,12 @@
         </button>
     </nav>
     
-    <!-- Mobile Menu -->
     <div class="mobile-menu" id="mobileMenu">
         <a href="index.html#products" onclick="closeMobileMenu()">Products</a>
         <a href="index.html#tiers" onclick="closeMobileMenu()">Quality Tiers</a>
         <a href="pricing.html" onclick="closeMobileMenu()">Pricing</a>
+        <a href="tools.html" onclick="closeMobileMenu()">Design Tools</a>
         <a href="samples.html" onclick="closeMobileMenu()">Free Samples</a>
-        <a href="about.html" onclick="closeMobileMenu()">About</a>
         <a href="index.html#quote" class="btn btn-primary" onclick="closeMobileMenu()">Get a Quote</a>
     </div>
 
@@ -482,7 +424,7 @@
     <section class="moq-explainer">
         <div class="explainer-content animate-on-scroll">
             <h2>Why MOQ Exists (And Why Ours Is Lower)</h2>
-            <p>MOQ (Minimum Order Quantity) isn't a random number we made up to frustrate you. It exists because manufacturing has fixed costs — setting up machines, sourcing specific fabrics, allocating production time.</p>
+            <p>MOQ (Minimum Order Quantity) isn't a random number. It exists because manufacturing has fixed costs — setting up machines, sourcing specific fabrics, allocating production time.</p>
             <p>Most factories set MOQs at 500-1,000 pieces because they're optimized for big brands. We've structured our operations differently, so we can start at <strong>100 pieces</strong> while still delivering quality.</p>
             
             <div class="moq-visual">
@@ -513,7 +455,7 @@
                         </div>
                     </div>
                 </div>
-                <p style="font-size: 0.85rem; color: var(--text-muted); margin-top: 1rem;">*Example pricing for Tier 2 Pullover Hoodie. Actual prices vary by product and customization.</p>
+                <p style="font-size: 0.85rem; color: var(--text-muted); margin-top: 1rem;">*Example for Tier 2 Pullover Hoodie</p>
             </div>
         </div>
     </section>
@@ -523,123 +465,55 @@
         <div class="section-header animate-on-scroll">
             <span class="section-label">Base Pricing</span>
             <h2 class="section-title">Estimated costs by product</h2>
-            <p class="section-subtitle">Prices shown are per unit at minimum order quantities. Final pricing depends on customizations.</p>
+            <p class="section-subtitle">Prices per unit at minimum order quantities. Final pricing depends on customizations.</p>
         </div>
         <div class="pricing-tables-grid">
             <div class="pricing-card animate-on-scroll">
-                <div class="pricing-card-header">
-                    <h3>👕 T-Shirts</h3>
-                </div>
+                <div class="pricing-card-header"><h3>👕 T-Shirts</h3></div>
                 <div class="pricing-card-body">
                     <table>
-                        <thead>
-                            <tr>
-                                <th>Tier</th>
-                                <th>MOQ</th>
-                                <th>Est. Price</th>
-                            </tr>
-                        </thead>
+                        <thead><tr><th>Tier</th><th>MOQ</th><th>Est. Price</th></tr></thead>
                         <tbody>
-                            <tr>
-                                <td><span class="tier-label tier1">Tier 1</span></td>
-                                <td>150 pcs</td>
-                                <td>$8–12</td>
-                            </tr>
-                            <tr>
-                                <td><span class="tier-label tier2">Tier 2</span></td>
-                                <td>200 pcs</td>
-                                <td>$12–18</td>
-                            </tr>
-                            <tr>
-                                <td><span class="tier-label tier3">Tier 3</span></td>
-                                <td>500 pcs</td>
-                                <td>$18–28</td>
-                            </tr>
+                            <tr><td><span class="tier-label tier1">Tier 1</span></td><td>150 pcs</td><td>$8–12</td></tr>
+                            <tr><td><span class="tier-label tier2">Tier 2</span></td><td>200 pcs</td><td>$12–18</td></tr>
+                            <tr><td><span class="tier-label tier3">Tier 3</span></td><td>500 pcs</td><td>$18–28</td></tr>
                         </tbody>
                     </table>
                 </div>
             </div>
             <div class="pricing-card animate-on-scroll">
-                <div class="pricing-card-header">
-                    <h3>🧥 Hoodies (Pullover & Full-Zip)</h3>
-                </div>
+                <div class="pricing-card-header"><h3>🧥 Hoodies (Pullover & Full-Zip)</h3></div>
                 <div class="pricing-card-body">
                     <table>
-                        <thead>
-                            <tr>
-                                <th>Tier</th>
-                                <th>MOQ</th>
-                                <th>Est. Price</th>
-                            </tr>
-                        </thead>
+                        <thead><tr><th>Tier</th><th>MOQ</th><th>Est. Price</th></tr></thead>
                         <tbody>
-                            <tr>
-                                <td><span class="tier-label tier1">Tier 1</span></td>
-                                <td>100 pcs</td>
-                                <td>$18–25</td>
-</tr>
-                            <tr>
-                                <td><span class="tier-label tier2">Tier 2</span></td>
-                                <td>200 pcs</td>
-                                <td>$25–38</td>
-                            </tr>
-                            <tr>
-                                <td><span class="tier-label tier3">Tier 3</span></td>
-                                <td>500 pcs</td>
-                                <td>$40–60</td>
-                            </tr>
+                            <tr><td><span class="tier-label tier1">Tier 1</span></td><td>100 pcs</td><td>$18–25</td></tr>
+                            <tr><td><span class="tier-label tier2">Tier 2</span></td><td>200 pcs</td><td>$25–38</td></tr>
+                            <tr><td><span class="tier-label tier3">Tier 3</span></td><td>500 pcs</td><td>$40–60</td></tr>
                         </tbody>
                     </table>
                 </div>
             </div>
             <div class="pricing-card animate-on-scroll">
-                <div class="pricing-card-header">
-                    <h3>👔 Crewneck Sweatshirts</h3>
-                </div>
+                <div class="pricing-card-header"><h3>👔 Crewneck Sweatshirts</h3></div>
                 <div class="pricing-card-body">
                     <table>
-                        <thead>
-                            <tr>
-                                <th>Tier</th>
-                                <th>MOQ</th>
-                                <th>Est. Price</th>
-                            </tr>
-                        </thead>
+                        <thead><tr><th>Tier</th><th>MOQ</th><th>Est. Price</th></tr></thead>
                         <tbody>
-                            <tr>
-                                <td><span class="tier-label tier1">Tier 1</span></td>
-                                <td>100 pcs</td>
-                                <td>$15–22</td>
-                            </tr>
-                            <tr>
-                                <td><span class="tier-label tier2">Tier 2</span></td>
-                                <td>200 pcs</td>
-                                <td>$22–32</td>
-                            </tr>
-                            <tr>
-                                <td><span class="tier-label tier3">Tier 3</span></td>
-                                <td>500 pcs</td>
-                                <td>$35–50</td>
-                            </tr>
+                            <tr><td><span class="tier-label tier1">Tier 1</span></td><td>100 pcs</td><td>$15–22</td></tr>
+                            <tr><td><span class="tier-label tier2">Tier 2</span></td><td>200 pcs</td><td>$22–32</td></tr>
+                            <tr><td><span class="tier-label tier3">Tier 3</span></td><td>500 pcs</td><td>$35–50</td></tr>
                         </tbody>
                     </table>
                 </div>
             </div>
             <div class="pricing-card animate-on-scroll">
-                <div class="pricing-card-header" style="background: var(--coral);">
-                    <h3>📦 Below MOQ Orders</h3>
-                </div>
+                <div class="pricing-card-header" style="background: var(--coral);"><h3>📦 Below MOQ Orders</h3></div>
                 <div class="pricing-card-body" style="padding: 1.5rem;">
-                    <p style="color: var(--text-muted); margin-bottom: 1rem;">Need fewer pieces? We can accommodate orders below MOQ with a premium:</p>
-                    <ul style="list-style: none; padding: 0;">
-                        <li style="padding: 0.5rem 0; padding-left: 1.5rem; position: relative; color: var(--text-muted);">
-                            <span style="position: absolute; left: 0; color: var(--coral);">•</span>
-                            50-99 pieces: +25% premium
-                        </li>
-                        <li style="padding: 0.5rem 0; padding-left: 1.5rem; position: relative; color: var(--text-muted);">
-                            <span style="position: absolute; left: 0; color: var(--coral);">•</span>
-                            25-49 pieces: +40% premium
-                        </li>
+                    <p style="color: var(--text-muted); margin-bottom: 1rem;">Need fewer pieces? We accommodate orders below MOQ with a premium:</p>
+                    <ul style="list-style: none; padding: 0; margin: 0;">
+                        <li style="padding: 0.5rem 0; color: var(--text-muted);">• 50-99 pieces: +25% premium</li>
+                        <li style="padding: 0.5rem 0; color: var(--text-muted);">• 25-49 pieces: +40% premium</li>
                     </ul>
                 </div>
             </div>
@@ -651,44 +525,20 @@
         <div class="section-header animate-on-scroll">
             <span class="section-label">Volume Discounts</span>
             <h2 class="section-title">Order more, save more</h2>
-            <p class="section-subtitle">Larger orders mean better per-unit pricing. Here's how it scales.</p>
         </div>
         <div class="volume-content animate-on-scroll">
             <table class="volume-table">
-                <thead>
-                    <tr>
-                        <th>Order Size</th>
-                        <th>Discount</th>
-                        <th>Best For</th>
-                    </tr>
-                </thead>
+                <thead><tr><th>Order Size</th><th>Discount</th><th>Best For</th></tr></thead>
                 <tbody>
-                    <tr>
-                        <td>100–199 pieces</td>
-                        <td>Base price</td>
-                        <td>Testing, small launches</td>
-                    </tr>
-                    <tr>
-                        <td>200–499 pieces</td>
-                        <td><span class="discount-badge">5–10% off</span></td>
-                        <td>Growing brands, seasonal drops</td>
-                    </tr>
-                    <tr>
-                        <td>500–999 pieces</td>
-                        <td><span class="discount-badge">10–15% off</span></td>
-                        <td>Established brands, retail</td>
-                    </tr>
-                    <tr>
-                        <td>1,000+ pieces</td>
-                        <td><span class="discount-badge">15–25% off</span></td>
-                        <td>Large retailers, wholesale</td>
-                    </tr>
+                    <tr><td>100–199 pieces</td><td>Base price</td><td>Testing, small launches</td></tr>
+                    <tr><td>200–499 pieces</td><td><span class="discount-badge">5–10% off</span></td><td>Growing brands</td></tr>
+                    <tr><td>500–999 pieces</td><td><span class="discount-badge">10–15% off</span></td><td>Established brands</td></tr>
+                    <tr><td>1,000+ pieces</td><td><span class="discount-badge">15–25% off</span></td><td>Large retailers</td></tr>
                 </tbody>
             </table>
-            
             <div class="note-box">
                 <h4>💡 Pro Tip</h4>
-                <p>If you're planning multiple drops throughout the year, let us know. We can often offer volume pricing across orders when you commit to an annual partnership.</p>
+                <p>Planning multiple drops? Let us know — we can offer volume pricing across orders with an annual partnership.</p>
             </div>
         </div>
     </section>
@@ -698,25 +548,24 @@
         <div class="section-header animate-on-scroll">
             <span class="section-label">Additional Costs</span>
             <h2 class="section-title">What else to budget for</h2>
-            <p class="section-subtitle">Beyond unit costs, here's what you should factor into your budget.</p>
         </div>
         <div class="costs-grid">
             <div class="cost-card animate-on-scroll">
                 <div class="cost-icon">🚚</div>
                 <h3>Shipping</h3>
-                <p>Depends on destination, weight, and speed. Sea freight is cheaper, air is faster.</p>
+                <p>Depends on destination, weight, and speed.</p>
                 <div class="cost-range">$300–$1,500+</div>
             </div>
             <div class="cost-card animate-on-scroll">
                 <div class="cost-icon">📋</div>
                 <h3>Customs & Duties</h3>
-                <p>Varies by country. We can provide documentation to minimize duties where possible.</p>
+                <p>Varies by country. We provide documentation.</p>
                 <div class="cost-range">5–25% of order</div>
             </div>
             <div class="cost-card animate-on-scroll">
                 <div class="cost-icon">🎨</div>
                 <h3>Branding Add-ons</h3>
-                <p>Custom labels, hangtags, special packaging. Embroidery costs more than print.</p>
+                <p>Custom labels, hangtags, special packaging.</p>
                 <div class="cost-range">$0.50–$5/unit</div>
             </div>
         </div>
@@ -727,43 +576,27 @@
         <div class="section-header animate-on-scroll">
             <span class="section-label" style="color: var(--coral-light);">Example Budget</span>
             <h2 class="section-title" style="color: var(--cream);">What a real order looks like</h2>
-            <p class="section-subtitle" style="color: rgba(245, 240, 232, 0.7);">Here's a sample budget for 200 Tier 2 pullover hoodies.</p>
         </div>
         <div class="calculator-box animate-on-scroll">
             <h3>200 × Tier 2 Pullover Hoodies</h3>
-            <div class="calc-row">
-                <span class="calc-label">Unit cost (200 × $30)</span>
-                <span class="calc-value">$6,000</span>
-            </div>
-            <div class="calc-row">
-                <span class="calc-label">Screen print (2 locations)</span>
-                <span class="calc-value">$400</span>
-            </div>
-            <div class="calc-row">
-                <span class="calc-label">Custom woven labels</span>
-                <span class="calc-value">$150</span>
-            </div>
-            <div class="calc-row">
-                <span class="calc-label">Shipping (air freight, US)</span>
-                <span class="calc-value">$650</span>
-            </div>
-            <div class="calc-row">
-                <span class="calc-label">Est. customs/duties</span>
-                <span class="calc-value">$400</span>
-            </div>
+            <div class="calc-row"><span class="calc-label">Unit cost (200 × $30)</span><span class="calc-value">$6,000</span></div>
+            <div class="calc-row"><span class="calc-label">Screen print (2 locations)</span><span class="calc-value">$400</span></div>
+            <div class="calc-row"><span class="calc-label">Custom woven labels</span><span class="calc-value">$150</span></div>
+            <div class="calc-row"><span class="calc-label">Shipping (air freight, US)</span><span class="calc-value">$650</span></div>
+            <div class="calc-row"><span class="calc-label">Est. customs/duties</span><span class="calc-value">$400</span></div>
             <div class="calc-total">
                 <span class="calc-label">Estimated Total</span>
                 <span class="calc-value">$7,600</span>
             </div>
         </div>
-        <p style="text-align: center; margin-top: 2rem; opacity: 0.7; font-size: 0.9rem;">That's $38 per hoodie landed — ready to retail at $80+ with healthy margins.</p>
+        <p style="text-align: center; margin-top: 2rem; opacity: 0.7; font-size: 0.9rem;">$38 per hoodie landed — ready to retail at $80+ with healthy margins.</p>
     </section>
 
     <!-- CTA -->
     <section class="cta-section">
         <div class="animate-on-scroll">
             <h2>Ready for a real quote?</h2>
-            <p>These are estimates. For exact pricing based on your specific requirements, get in touch.</p>
+            <p>These are estimates. For exact pricing based on your requirements, get in touch.</p>
             <div style="display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;">
                 <a href="index.html#quote" class="btn btn-primary">Get Custom Quote</a>
                 <a href="samples.html" class="btn btn-secondary">Request Samples First</a>
@@ -776,7 +609,7 @@
         <div class="footer-content">
             <div class="footer-brand">
                 <a href="index.html" class="logo">Loom<span>ry</span></a>
-                <p>Premium apparel manufacturing for emerging brands. From concept to closet.</p>
+                <p>Premium apparel manufacturing for emerging brands.</p>
                 <a href="mailto:hello@loomry.org" class="footer-email">
                     <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                         <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
@@ -787,17 +620,16 @@
             </div>
             <div class="footer-column">
                 <h4>Products</h4>
-                <a href="index.html#products">T-Shirts</a>
-                <a href="index.html#products">Hoodies</a>
-                <a href="index.html#products">Sweatshirts</a>
-                <a href="index.html#tiers">Quality Tiers</a>
+                <a href="tshirts.html">T-Shirts</a>
+                <a href="hoodies.html">Hoodies</a>
+                <a href="sweatshirts.html">Sweatshirts</a>
             </div>
             <div class="footer-column">
                 <h4>Resources</h4>
                 <a href="pricing.html">MOQ & Pricing</a>
                 <a href="shipping.html">Shipping Info</a>
                 <a href="samples.html">Free Samples</a>
-                <a href="apparel-startup-kit.pdf">Startup Kit (PDF)</a>
+                <a href="tools.html">Design Tools</a>
             </div>
             <div class="footer-column">
                 <h4>Company</h4>
@@ -805,13 +637,10 @@
                 <a href="index.html#quote">Contact</a>
             </div>
         </div>
-        <div class="footer-bottom">
-            <p>© 2025 Loomry. All rights reserved.</p>
-        </div>
+        <div class="footer-bottom"><p>© 2025 Loomry. All rights reserved.</p></div>
     </footer>
     
-    <!-- WhatsApp Button -->
-    <a href="https://wa.me/YOUR_WHATSAPP_NUMBER?text=Hi%20Loomry!%20I%20have%20questions%20about%20pricing." class="whatsapp-float" target="_blank" rel="noopener">
+    <a href="https://wa.me/YOUR_WHATSAPP_NUMBER" class="whatsapp-float" target="_blank" rel="noopener">
         <span class="whatsapp-tooltip">Chat with us!</span>
         <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
     </a>
@@ -834,16 +663,11 @@
         }
         
         const navbar = document.getElementById('navbar');
-        window.addEventListener('scroll', () => {
-            navbar.classList.toggle('scrolled', window.scrollY > 50);
-        });
+        window.addEventListener('scroll', () => navbar.classList.toggle('scrolled', window.scrollY > 50));
         
         const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) entry.target.classList.add('visible');
-            });
+            entries.forEach(entry => { if (entry.isIntersecting) entry.target.classList.add('visible'); });
         }, { threshold: 0.1 });
-        
         document.querySelectorAll('.animate-on-scroll').forEach(el => observer.observe(el));
     </script>
 </body>

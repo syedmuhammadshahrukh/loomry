@@ -1,0 +1,388 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hoodies — Loomry | Premium Custom Hoodie Manufacturing</title>
+    <meta name="description" content="Premium custom hoodie manufacturing in three quality tiers. Pullover and full-zip options. From budget-friendly to luxury heavyweight fleece.">
+    
+    <link rel="icon" type="image/svg+xml" href="favicon.svg">
+    <meta name="theme-color" content="#1a2b4a">
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=DM+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="products.css">
+</head>
+<body>
+    <!-- Main Navigation -->
+    <nav id="navbar">
+        <a href="index.html" class="logo">Loom<span>ry</span></a>
+        <div class="nav-links">
+            <a href="tshirts.html" class="active">Products</a>
+            <a href="index.html#tiers">Quality Tiers</a>
+            <a href="pricing.html">Pricing</a>
+            <a href="tools.html">Tools</a>
+            <a href="index.html#quote" class="nav-cta">Get a Quote</a>
+        </div>
+        <button class="mobile-menu-btn" aria-label="Menu" onclick="toggleMobileMenu()">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+    </nav>
+    
+    <div class="mobile-menu" id="mobileMenu">
+        <a href="tshirts.html" onclick="closeMobileMenu()">T-Shirts</a>
+        <a href="hoodies.html" onclick="closeMobileMenu()">Hoodies</a>
+        <a href="sweatshirts.html" onclick="closeMobileMenu()">Sweatshirts</a>
+        <a href="pricing.html" onclick="closeMobileMenu()">Pricing</a>
+        <a href="tools.html" onclick="closeMobileMenu()">Design Tools</a>
+        <a href="index.html#quote" class="btn btn-primary" onclick="closeMobileMenu()">Get a Quote</a>
+    </div>
+
+    <!-- Product Navigation - Sticky Tabs -->
+    <div class="product-nav" id="productNav">
+        <div class="product-nav-inner">
+            <span class="product-nav-title">Loomry Products</span>
+            <div class="product-nav-tabs">
+                <a href="tshirts.html" class="product-nav-tab">T-Shirts</a>
+                <a href="hoodies.html" class="product-nav-tab active">Hoodies</a>
+                <a href="sweatshirts.html" class="product-nav-tab">Sweatshirts</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Product Hero -->
+    <section class="product-hero">
+        <span class="product-hero-label">Custom Manufacturing</span>
+        <h1>Hoodies</h1>
+        <p class="product-hero-subtitle">Pullover and full-zip styles in three quality tiers. From cozy basics to heavyweight luxury fleece that defines modern streetwear.</p>
+        <div class="product-hero-cta">
+            <a href="#tier-1" class="btn btn-primary">Explore Tiers</a>
+            <a href="samples.html" class="btn btn-secondary">Request Samples</a>
+        </div>
+        <div class="scroll-indicator">
+            <span>Scroll to explore</span>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M12 5v14M5 12l7 7 7-7"/>
+            </svg>
+        </div>
+    </section>
+
+    <!-- Tier 1: Budget -->
+    <section class="tier-section" id="tier-1">
+        <div class="tier-container">
+            <div class="tier-header">
+                <span class="tier-badge tier-1">Tier 1</span>
+                <h2>Budget</h2>
+                <span class="price-range">$18 – $25 per unit</span>
+            </div>
+            
+            <div class="slideshow-container" data-slideshow="tier1">
+                <div class="slideshow-track">
+                    <div class="slideshow-slide">
+                        <img src="https://images.unsplash.com/photo-1556821840-3a63f95609a7?w=1200&h=675&fit=crop" alt="Black hoodie on hanger">
+                    </div>
+                    <div class="slideshow-slide">
+                        <img src="https://images.unsplash.com/photo-1578768079052-aa76e52ff62e?w=1200&h=675&fit=crop" alt="Person wearing black hoodie">
+                    </div>
+                    <div class="slideshow-slide">
+                        <img src="https://images.unsplash.com/photo-1620799139507-2a76f79a2f4d?w=1200&h=675&fit=crop" alt="Hoodie fabric detail">
+                    </div>
+                    <div class="slideshow-slide">
+                        <img src="https://images.unsplash.com/photo-1509942774463-acf339cf87d5?w=1200&h=675&fit=crop" alt="Stack of hoodies">
+                    </div>
+                </div>
+                <button class="slideshow-arrow prev" onclick="prevSlide('tier1')">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 18l-6-6 6-6"/></svg>
+                </button>
+                <button class="slideshow-arrow next" onclick="nextSlide('tier1')">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 18l6-6-6-6"/></svg>
+                </button>
+                <div class="slideshow-controls">
+                    <div class="slideshow-dots" data-dots="tier1"></div>
+                </div>
+            </div>
+            
+            <div class="tier-content">
+                <div class="tier-specs">
+                    <h3>Core Specifications</h3>
+                    <ul>
+                        <li>280–320 GSM fleece blend (cotton/poly)</li>
+                        <li>Pullover or full-zip styles available</li>
+                        <li>Standard pouch pocket</li>
+                        <li>Screen print or DTG compatible</li>
+                        <li>Standard drawstrings and hardware</li>
+                        <li>±5% tolerance on measurements</li>
+                    </ul>
+                    <div class="moq-badge">
+                        📦 MOQ: 100 pieces per style/color
+                    </div>
+                </div>
+                <div class="tier-description">
+                    <h3>Accessible comfort</h3>
+                    <p>Our Tier 1 hoodies deliver the cozy essentials your customers expect at a price point that makes sense for new brands. The cotton-poly blend ensures durability and easy care while maintaining a soft interior feel. Perfect for testing new designs, building a merch line, or offering an entry-level option in your collection. These hoodies hold prints well and arrive ready to sell — a reliable workhorse for brands building momentum.</p>
+                    <a href="index.html#quote" class="tier-cta">
+                        Get Quote for Tier 1
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Tier 2: Core -->
+    <section class="tier-section" id="tier-2">
+        <div class="tier-container">
+            <div class="tier-header">
+                <span class="tier-badge tier-2">Tier 2</span>
+                <h2>Core</h2>
+                <span class="price-range">$25 – $38 per unit</span>
+            </div>
+            
+            <div class="slideshow-container" data-slideshow="tier2">
+                <div class="slideshow-track">
+                    <div class="slideshow-slide">
+                        <img src="https://images.unsplash.com/photo-1542406775-ade58c52d2e4?w=1200&h=675&fit=crop" alt="Premium hoodie">
+                    </div>
+                    <div class="slideshow-slide">
+                        <img src="https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?w=1200&h=675&fit=crop" alt="Fashion hoodie shot">
+                    </div>
+                    <div class="slideshow-slide">
+                        <img src="https://images.unsplash.com/photo-1606107557195-0e29a4b5b4aa?w=1200&h=675&fit=crop" alt="Hoodie close-up">
+                    </div>
+                    <div class="slideshow-slide">
+                        <img src="https://images.unsplash.com/photo-1594938298603-c8148c4dae35?w=1200&h=675&fit=crop" alt="Hoodie on model">
+                    </div>
+                </div>
+                <button class="slideshow-arrow prev" onclick="prevSlide('tier2')">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 18l-6-6 6-6"/></svg>
+                </button>
+                <button class="slideshow-arrow next" onclick="nextSlide('tier2')">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 18l6-6-6-6"/></svg>
+                </button>
+                <div class="slideshow-controls">
+                    <div class="slideshow-dots" data-dots="tier2"></div>
+                </div>
+            </div>
+            
+            <div class="tier-content">
+                <div class="tier-specs">
+                    <h3>Core Specifications</h3>
+                    <ul>
+                        <li>320–360 GSM 100% cotton fleece</li>
+                        <li>Pullover or full-zip with metal hardware</li>
+                        <li>Double-lined hood with flat drawstrings</li>
+                        <li>Screen print, DTG, or embroidery</li>
+                        <li>Custom woven labels + hangtags</li>
+                        <li>±3% tolerance on measurements</li>
+                    </ul>
+                    <div class="moq-badge">
+                        📦 MOQ: 200 pieces per style/color
+                    </div>
+                </div>
+                <div class="tier-description">
+                    <h3>The retail standard</h3>
+                    <p>Tier 2 hoodies are what customers reach for when they want that satisfying weight and softness they've come to expect from their favorite brands. 100% cotton fleece with a brushed interior delivers comfort that cotton-poly blends can't match. Metal hardware, quality drawstrings, and thoughtful construction details justify a $60-80 retail price. This is where your brand can truly compete with the established names on the rack.</p>
+                    <a href="index.html#quote" class="tier-cta">
+                        Get Quote for Tier 2
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Tier 3: Premium -->
+    <section class="tier-section" id="tier-3">
+        <div class="tier-container">
+            <div class="tier-header">
+                <span class="tier-badge tier-3">Tier 3</span>
+                <h2>Premium</h2>
+                <span class="price-range">$40 – $60 per unit</span>
+            </div>
+            
+            <div class="slideshow-container" data-slideshow="tier3">
+                <div class="slideshow-track">
+                    <div class="slideshow-slide">
+                        <img src="https://images.unsplash.com/photo-1591047139829-d91aecb6caea?w=1200&h=675&fit=crop" alt="Luxury heavyweight hoodie">
+                    </div>
+                    <div class="slideshow-slide">
+                        <img src="https://images.unsplash.com/photo-1544441893-675973e31985?w=1200&h=675&fit=crop" alt="Premium hoodie detail">
+                    </div>
+                    <div class="slideshow-slide">
+                        <img src="https://images.unsplash.com/photo-1517438476312-10d79c077509?w=1200&h=675&fit=crop" alt="Streetwear hoodie">
+                    </div>
+                    <div class="slideshow-slide">
+                        <img src="https://images.unsplash.com/photo-1564557287817-3785e38ec1f5?w=1200&h=675&fit=crop" alt="High-end hoodie">
+                    </div>
+                </div>
+                <button class="slideshow-arrow prev" onclick="prevSlide('tier3')">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 18l-6-6 6-6"/></svg>
+                </button>
+                <button class="slideshow-arrow next" onclick="nextSlide('tier3')">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 18l6-6-6-6"/></svg>
+                </button>
+                <div class="slideshow-controls">
+                    <div class="slideshow-dots" data-dots="tier3"></div>
+                </div>
+            </div>
+            
+            <div class="tier-content">
+                <div class="tier-specs">
+                    <h3>Core Specifications</h3>
+                    <ul>
+                        <li>380–420 GSM custom knit heavyweight fleece</li>
+                        <li>Oversized or tailored silhouettes</li>
+                        <li>Flatlock seams, reinforced ribbing</li>
+                        <li>Embroidery only + custom trims</li>
+                        <li>Full branding package with premium packaging</li>
+                        <li>±2% tolerance on measurements</li>
+                    </ul>
+                    <div class="moq-badge">
+                        📦 MOQ: 500 pieces per style/color
+                    </div>
+                </div>
+                <div class="tier-description">
+                    <h3>Heavyweight luxury</h3>
+                    <p>Tier 3 is where hoodies become collector's items. We're talking 400+ GSM fleece that feels like wearing a cloud, with the kind of weight and drape that turns heads. Flatlock seaming for a premium interior feel, custom knit options for unique fabric textures, and construction that stands up to years of wear. These are the hoodies that get Instagram posts, unboxing videos, and instant sellouts. For brands ready to play at the top tier of streetwear.</p>
+                    <a href="index.html#quote" class="tier-cta">
+                        Get Quote for Tier 3
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Compare CTA -->
+    <section class="compare-section">
+        <h2>Not sure which tier is right?</h2>
+        <p>Order samples from each tier and feel the difference yourself. Samples ship within 5-7 business days.</p>
+        <div style="display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;">
+            <a href="samples.html" class="btn btn-primary">Request Free Samples</a>
+            <a href="index.html#quote" class="btn btn-secondary" style="border-color: var(--cream); color: var(--cream);">Get a Custom Quote</a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-brand">
+                <a href="index.html" class="logo">Loom<span>ry</span></a>
+                <p>Premium apparel manufacturing for emerging brands.</p>
+                <a href="mailto:hello@loomry.org" class="footer-email">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
+                        <polyline points="22,6 12,13 2,6"/>
+                    </svg>
+                    hello@loomry.org
+                </a>
+            </div>
+            <div class="footer-column">
+                <h4>Products</h4>
+                <a href="tshirts.html">T-Shirts</a>
+                <a href="hoodies.html">Hoodies</a>
+                <a href="sweatshirts.html">Sweatshirts</a>
+            </div>
+            <div class="footer-column">
+                <h4>Resources</h4>
+                <a href="pricing.html">MOQ & Pricing</a>
+                <a href="shipping.html">Shipping Info</a>
+                <a href="samples.html">Free Samples</a>
+                <a href="tools.html">Design Tools</a>
+            </div>
+            <div class="footer-column">
+                <h4>Company</h4>
+                <a href="about.html">About Us</a>
+                <a href="index.html#quote">Contact</a>
+            </div>
+        </div>
+        <div class="footer-bottom"><p>© 2025 Loomry. All rights reserved.</p></div>
+    </footer>
+    
+    <a href="https://wa.me/YOUR_WHATSAPP_NUMBER" class="whatsapp-float" target="_blank" rel="noopener">
+        <span class="whatsapp-tooltip">Chat with us!</span>
+        <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+    </a>
+
+    <script>
+        // ============ NAVIGATION ============
+        function toggleMobileMenu() {
+            const menu = document.getElementById('mobileMenu');
+            const btn = document.querySelector('.mobile-menu-btn');
+            menu.classList.toggle('active');
+            btn.classList.toggle('active');
+            document.body.style.overflow = menu.classList.contains('active') ? 'hidden' : '';
+        }
+        
+        function closeMobileMenu() {
+            document.getElementById('mobileMenu').classList.remove('active');
+            document.querySelector('.mobile-menu-btn').classList.remove('active');
+            document.body.style.overflow = '';
+        }
+        
+        const navbar = document.getElementById('navbar');
+        const productNav = document.getElementById('productNav');
+        
+        window.addEventListener('scroll', () => {
+            const currentScroll = window.scrollY;
+            navbar.classList.toggle('scrolled', currentScroll > 50);
+            productNav.classList.toggle('hidden', currentScroll <= 400);
+        });
+        
+        productNav.classList.add('hidden');
+        
+        // ============ SLIDESHOW ============
+        const slideshows = {};
+        
+        function initSlideshows() {
+            document.querySelectorAll('[data-slideshow]').forEach(container => {
+                const id = container.dataset.slideshow;
+                const track = container.querySelector('.slideshow-track');
+                const slides = track.querySelectorAll('.slideshow-slide');
+                const dotsContainer = document.querySelector(`[data-dots="${id}"]`);
+                
+                slideshows[id] = { container, track, slides, currentIndex: 0, interval: null };
+                
+                slides.forEach((_, i) => {
+                    const dot = document.createElement('button');
+                    dot.className = 'slideshow-dot' + (i === 0 ? ' active' : '');
+                    dot.onclick = () => goToSlide(id, i);
+                    dotsContainer.appendChild(dot);
+                });
+                
+                startAutoPlay(id);
+                container.addEventListener('mouseenter', () => stopAutoPlay(id));
+                container.addEventListener('mouseleave', () => startAutoPlay(id));
+            });
+        }
+        
+        function goToSlide(id, index) {
+            const show = slideshows[id];
+            show.currentIndex = (index + show.slides.length) % show.slides.length;
+            show.track.style.transform = `translateX(-${show.currentIndex * 100}%)`;
+            document.querySelectorAll(`[data-dots="${id}"] .slideshow-dot`).forEach((dot, i) => {
+                dot.classList.toggle('active', i === show.currentIndex);
+            });
+        }
+        
+        function nextSlide(id) { goToSlide(id, slideshows[id].currentIndex + 1); }
+        function prevSlide(id) { goToSlide(id, slideshows[id].currentIndex - 1); }
+        function startAutoPlay(id) { stopAutoPlay(id); slideshows[id].interval = setInterval(() => nextSlide(id), 3000); }
+        function stopAutoPlay(id) { if (slideshows[id].interval) { clearInterval(slideshows[id].interval); slideshows[id].interval = null; } }
+        
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            });
+        });
+        
+        document.addEventListener('DOMContentLoaded', initSlideshows);
+    </script>
+</body>
+</html>
